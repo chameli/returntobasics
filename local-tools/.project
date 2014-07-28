@@ -24,5 +24,10 @@
             <type>1</type>
             <locationURI>PARENT-1-PROJECT_LOC/README.md</locationURI>
         </link>
+        <link>
+            <name>site-docs</name>
+            <type>2</type>
+            <locationURI>PARENT-1-PROJECT_LOC/src/site/markdown</locationURI>
+        </link>
 	</linkedResources>
 </projectDescription>
