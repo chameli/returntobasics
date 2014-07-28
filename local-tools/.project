@@ -27,7 +27,7 @@
         <link>
             <name>site-docs</name>
             <type>2</type>
-            <locationURI>PARENT-1-PROJECT_LOC/src/site/markdown</locationURI>
+            <locationURI>PARENT-1-PROJECT_LOC/src/site</locationURI>
         </link>
 	</linkedResources>
 </projectDescription>

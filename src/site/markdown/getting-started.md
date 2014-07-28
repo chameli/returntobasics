@@ -2,8 +2,8 @@
 ## Maven
 * Set environment variables, either every time you open the command prompt or once at  
 Start->Right click on Computer, choose Properties->Advanced system settings->Environment variables
-  * JAVA_HOME=<location of the installed jdk, e.g. C:\Program Files\Java\jdk1.7.0_25>
-  * MAVEN_HOME=<location of the maven installation>
+  * JAVA_HOME=*location of the installed jdk, e.g. C:\Program Files\Java\jdk1.7.0_25*
+  * MAVEN_HOME=*location of the maven installation*
   * PATH=%PATH%;%MAVEN_HOME%\bin
 * (COMMAND) Verify by *mvn -version*
 

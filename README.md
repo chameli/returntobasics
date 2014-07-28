@@ -3,4 +3,4 @@ returntobasics
 
 [Getting started](src/site/markdown/getting-started.md)
 
-[Generating site documentation](src/site/markdown/generate-site.md)
+[Site documentation](src/site/markdown/site-documentation.md)
