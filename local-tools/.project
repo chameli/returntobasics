@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>local-tools</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name></name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>pappa-pom.xml</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/pom.xml</locationURI>
+		</link>
+        <link>
+            <name>README.md</name>
+            <type>1</type>
+            <locationURI>PARENT-1-PROJECT_LOC/README.md</locationURI>
+        </link>
+	</linkedResources>
+</projectDescription>
