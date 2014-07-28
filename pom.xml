@@ -15,7 +15,12 @@
     </properties>
 
     <modules>
-        <module>rtb-web-app</module>
+        <module>rtb-common</module>
+        <module>rtb-service</module>
+        <module>rtb-ejb</module>
+        <module>rtb-webservice</module>
+        <module>rtb-web</module>
+        <module>rtb-ear</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -66,7 +71,7 @@
                 <artifactId>maven-embedded-glassfish-plugin</artifactId>
                 <version>4.0</version>
                 <configuration>
-                    <app>rtb-web-app/target/rtb-web-app-1.0-SNAPSHOT.war</app>
+                    <app>rtb-web/target/rtb-web-1.0-SNAPSHOT.war</app>
                     <port>8080</port>
                     <ports>
                         <https-listener>8181</https-listener>

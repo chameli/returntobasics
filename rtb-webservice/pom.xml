@@ -10,27 +10,13 @@
     </parent>
 
     <groupId>com.chameli.rtb</groupId>
-    <artifactId>rtb-web-app</artifactId>
+    <artifactId>rtb-webservice</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>ejb</packaging>
 
-    <name>rtb-web-app</name>
+    <name>rtb-webservice</name>
 
     <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
