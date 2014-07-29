@@ -12,6 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <weblogic.version>12.1</weblogic.version>
     </properties>
 
     <modules>
@@ -28,11 +29,33 @@
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
                 <version>6.0</version>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-web-api</artifactId>
                 <version>6.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -103,21 +126,20 @@
                     <configuration>
                         <version>6</version>
                         <defaultLibBundleDir>lib</defaultLibBundleDir>
-                        <modules>
-                            <ejbModule>
-                                <groupId>com.chameli.rtb</groupId>
-                                <artifactId>rtb-ejb</artifactId>
-                            </ejbModule>
-                            <ejbModule>
-                                <groupId>com.chameli.rtb</groupId>
-                                <artifactId>rtb-webservice</artifactId>
-                            </ejbModule>
-                            <webModule>
-                                <groupId>com.chameli.rtb</groupId>
-                                <artifactId>rtb-web</artifactId>
-                            </webModule>
-                        </modules>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.oracle.weblogic</groupId>
+                    <artifactId>wls-maven-plugin</artifactId>
+                    <version>12.1.1.0</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>appc</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
