@@ -1,4 +1,4 @@
-#Getting started
+# Getting started
 ## Maven
 * Set environment variables, either every time you open the command prompt or once at  
 Start->Right click on Computer, choose Properties->Advanced system settings->Environment variables
@@ -8,8 +8,15 @@ Start->Right click on Computer, choose Properties->Advanced system settings->Env
 * (COMMAND) Verify by *mvn -version*
 
 ## Eclipse workspace
+### Configuration
+Install the following plugins using the listed update sites
+* Markdown Editor plugin for Eclipse (http://winterwell.com/software/updatesite/)
+* GitHub Flavored Markdown viewer plugin 1.8.3 (https://raw.github.com/satyagraha/gfm_viewer/master/p2-composite/)
+
+### Workspace
 * Unpack local-tools/returntobasics-workspace.zip to E:\gaston\workspaces
 * (Command) mvn -Declipse.workspace="E:\gaston\workspaces\returntobasics" eclipse:configure-workspace
-* (Command) mvn eclipse:eclipse -DdownloadJavadocs=true -DdownloadSources=true
+* (Command) mvn eclipse:eclipse
 * (Eclipse) Open workspace E:\gaston\workspaces\returntobasics
 * (Eclipse) Import existing projects from E:\gaston\git\returntobasics
+* (Eclipse) Select all projects, right click and choose Team->Share->Git

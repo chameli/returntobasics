@@ -19,6 +19,18 @@
     <dependencies>
         <dependency>
             <groupId>com.chameli.rtb</groupId>
+            <artifactId>rtb-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.chameli.rtb</groupId>
+            <artifactId>rtb-service</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.chameli.rtb</groupId>
             <artifactId>rtb-ejb</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
@@ -44,6 +56,14 @@
                 <artifactId>maven-ear-plugin</artifactId>
                 <configuration>
                     <modules>
+                        <jarModule>
+                            <groupId>com.chameli.rtb</groupId>
+                            <artifactId>rtb-common</artifactId>
+                        </jarModule>
+                        <jarModule>
+                            <groupId>com.chameli.rtb</groupId>
+                            <artifactId>rtb-service</artifactId>
+                        </jarModule>
                         <ejbModule>
                             <groupId>com.chameli.rtb</groupId>
                             <artifactId>rtb-ejb</artifactId>
