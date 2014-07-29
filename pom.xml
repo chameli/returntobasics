@@ -26,8 +26,13 @@
         <dependencies>
             <dependency>
                 <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>javax</groupId>
                 <artifactId>javaee-web-api</artifactId>
-                <version>7.0</version>
+                <version>6.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -41,98 +46,85 @@
     </distributionManagement>
 
     <pluginRepositories>
-        <pluginRepository>
-            <id>maven.java.net</id>
-            <name>Java.net Maven2 Repository</name>
-            <url>http://download.java.net/maven/2</url>
-        </pluginRepository>
     </pluginRepositories>
+
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-eclipse-plugin</artifactId>
+                    <version>2.9</version>
+                    <configuration>
+                        <downloadSources>true</downloadSources>
+                        <downloadJavadocs>true</downloadJavadocs>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.3</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.doxia</groupId>
+                            <artifactId>doxia-module-markdown</artifactId>
+                            <version>1.6</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>2.9.1</version>
+                    <configuration>
+                        <version>6</version>
+                        <defaultLibBundleDir>lib</defaultLibBundleDir>
+                        <modules>
+                            <ejbModule>
+                                <groupId>com.chameli.rtb</groupId>
+                                <artifactId>rtb-ejb</artifactId>
+                            </ejbModule>
+                            <ejbModule>
+                                <groupId>com.chameli.rtb</groupId>
+                                <artifactId>rtb-webservice</artifactId>
+                            </ejbModule>
+                            <webModule>
+                                <groupId>com.chameli.rtb</groupId>
+                                <artifactId>rtb-web</artifactId>
+                            </webModule>
+                        </modules>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.7</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.3</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.maven.doxia</groupId>
-                        <artifactId>doxia-module-markdown</artifactId>
-                        <version>1.6</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>org.glassfish.embedded</groupId>
-                <artifactId>maven-embedded-glassfish-plugin</artifactId>
-                <version>4.0</version>
-                <configuration>
-                    <app>rtb-web/target/rtb-web-1.0-SNAPSHOT.war</app>
-                    <port>8080</port>
-                    <ports>
-                        <https-listener>8181</https-listener>
-                    </ports>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.glassfish.main.common</groupId>
-                        <artifactId>simple-glassfish-api</artifactId>
-                        <version>4.0</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.glassfish.main.extras</groupId>
-                        <artifactId>glassfish-embedded-all</artifactId>
-                        <version>4.0</version>
-                    </dependency>
-                </dependencies>
-                <!-- <executions> <execution> <id>start</id> <phase>integration-test</phase> <goals> <goal>start</goal> <goal>deploy</goal> 
-                    </goals> </execution> <execution> <id>stop</id> <phase>post-integration-test</phase> <goals> <goal>undeploy</goal> <goal>stop</goal> 
-                    </goals> </execution> </executions> -->
-            </plugin>        <!-- <plugin> <groupId>org.glassfish.maven.plugin</groupId> <artifactId>maven-glassfish-plugin</artifactId> <version>2.1</version> 
-                <configuration> <glassfishDirectory>${glassfish.home}</glassfishDirectory> <user>${domain.username}</user> <adminPassword>${domain.password}</adminPassword> 
-                <passFile>path/to/asadmin/passfile</passFile> <autoCreate>true</autoCreate> <debug>true</debug> <echo>false</echo> <terse>true</terse> 
-                <skip>${test.int.skip}</skip> <domain> <name>${project.artifactId}</name> <adminPort>4848</adminPort> <httpPort>8080</httpPort> 
-                <httpsPort>8443</httpsPort> <iiopPort>3700</iiopPort> <jmsPort>7676</jmsPort> <reuse>false</reuse> <jvmOptions> <option>-Djava.security.auth.login.config=${project.build.testOutputDirectory}/login.conf</option> 
-                </jvmOptions> <properties> <property> <name>server.log-service.file</name> <value>${domain.log.dir}/server.log</value> </property> 
-                </properties> <auth> <realm> <name>testRealm</name> <className>com.sun.enterprise.security.auth.realm.file.FileRealm</className> 
-                <properties> <property> <name>jaas-context</name> <value>test</value> </property> <property> <name>file</name> <value>${project.build.outputDirectory}/keyfile</value> 
-                </property> </properties> </realm> </auth> <resourceDescriptor>path/to/resources.xml</resourceDescriptor> <resources> <connectionFactory> 
-                <jndiName>jms/testQueueConnectionFactory</jndiName> <type>queueConnectionFactory</type> <properties> <property> <name>UserName</name> 
-                <value>guest</value> </property> <property> <name>Password</name> <value>guest</value> </property> <property> <name>AddressList</name> 
-                <value>localhost:7676</value> </property> </properties> </connectionFactory> <jmsTopic> <jndiName>jms/testTopic</jndiName> 
-                <destinationName>TestTopic</destinationName> <connectionFactory> <jndiName>jms/testTopicConnectionFactory</jndiName> <properties> 
-                <property> <name>UserName</name> <value>guest</value> </property> <property> <name>Password</name> <value>guest</value> </property> 
-                <property> <name>AddressList</name> <value>localhost:7676</value> </property> </properties> </connectionFactory> </jmsTopic> 
-                <jdbcDataSource> <name>SomeDS</name> <type>connectionPoolDataSource</type> <poolName>SomePool</poolName> <className>com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource</className> 
-                <description>Some JDBC Connection Pool</description> <allowNonComponentCallers>false</allowNonComponentCallers> <validateConnections>true</validateConnections> 
-                <validationMethod>metaData</validationMethod> <properties> <property> <name>portNumber</name> <value>3306</value> </property> 
-                <property> <name>password</name> <value>somePassword</value> </property> <property> <name>user</name> <value>someUser</value> 
-                </property> <property> <name>serverName</name> <value>some.host.somewhere</value> </property> <property> <name>databaseName</name> 
-                <value>SomeDB</value> </property> </properties> </jdbcDataSource> </resources> </domain> <components> <component> <name>${project.artifactId}</name> 
-                <artifact>${project.build.directory}/artifacts/${project.build.finalName}.war</artifact> </component> </components> </configuration> 
-                </plugin> -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.6</version>
             </plugin>
         </plugins>
     </build>
