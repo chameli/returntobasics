@@ -132,6 +132,10 @@
                     <groupId>com.oracle.weblogic</groupId>
                     <artifactId>wls-maven-plugin</artifactId>
                     <version>12.1.1.0</version>
+                    <configuration>
+                    <user>weblogic</user>
+                    <password>welcome1</password>
+                    </configuration>
                     <executions>
                         <execution>
                             <phase>package</phase>
