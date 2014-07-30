@@ -6,7 +6,7 @@
         <class>com.chameli.rtb.service.entity.ItemEO</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:testdb;sql.syntax_ora=true" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:testdb;sql.syntax_mys=true" />
 
             <!-- EclipseLink should drop and create the database schema automatically -->
             <!-- <property name="eclipselink.ddl-generation" value="drop-and-create-tables" /> NOTE This property is overriden 

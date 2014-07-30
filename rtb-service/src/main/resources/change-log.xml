@@ -14,7 +14,7 @@
 			<column name="id" type="NUMBER">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="name" type="varchar2(100 CHAR)">
+			<column name="name" type="varchar(100)">
 				<constraints unique="true" nullable="false" />
 			</column>
 			<column name="version" type="NUMBER">
