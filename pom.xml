@@ -13,6 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <weblogic.version>12.1</weblogic.version>
+        <spring.version>3.2.10.RELEASE</spring.version>
     </properties>
 
     <modules>
@@ -43,6 +44,12 @@
                 <artifactId>javaee-web-api</artifactId>
                 <version>6.0</version>
                 <scope>provided</scope>
+            </dependency>
+            <!-- Spring Web -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
             </dependency>
             <!-- Persistence -->
             <dependency>
