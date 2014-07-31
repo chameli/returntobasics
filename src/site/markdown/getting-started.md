@@ -1,5 +1,18 @@
 # Getting started
 
+## Prerequisites
+The following software downloaded and installed
+* JDK 7
+* Maven 3
+* Eclipse Kepler or newer
+* Weblogic 12g
+* MySQL 5.5 or newer
+* Toad for MySQL 7.2 (optional, use your preferred database tool)
+
+**Note that all paths, in the instructions and template files, must be adjusted according to your own environment**
+
+*All commands expect that you are located in your locally cloned repository's root folder, e.g. E:\gaston\git\returntobasics*
+
 ## Maven
 ### Settings.xml
 * Make a copy of HOME/.m2/settings.xml
@@ -14,7 +27,7 @@ Start->Right click on Computer, choose Properties->Advanced system settings->Env
   * PATH=%PATH%;%MAVEN_HOME%\bin
 * (COMMAND) Verify by *mvn -version*
 
-## Eclipse workspace
+## Eclipse
 ### Configuration
 Install the following plugins using the listed update sites
 * Markdown Editor plugin for Eclipse (http://winterwell.com/software/updatesite/)
@@ -33,3 +46,12 @@ Install the following plugins using the listed update sites
 Follow the steps in section **Configuring the WebLogic Development Maven Plug-In - For apache-maven-3.0.x** at  
 http://docs.oracle.com/cd/E24329_01/web.1211/e24368/maven.htm#CHEIHIEH
 
+
+## MySQL
+### Configuration
+* Open MySQL command line client
+* Execute the following statements to create database and user
+  * create database returntobasics;
+  * use returntobasics;
+  * create user returntobasics identified by 'returntobasics';
+  * grant all on returntobasics.* to returntobasics;
