@@ -40,7 +40,6 @@ public abstract class AbstractDAO<T> {
 
     protected T internalGet(Object id) {
         EntityManager em = em();
-        logger.debug(em.getTransaction());
         return em.find(persistentClazz, id);
     }
 
@@ -64,7 +63,6 @@ public abstract class AbstractDAO<T> {
 
     public void persist(T entity) {
         EntityManager em = em();
-        logger.debug(em.getTransaction());
         em.persist(entity);
     }
 

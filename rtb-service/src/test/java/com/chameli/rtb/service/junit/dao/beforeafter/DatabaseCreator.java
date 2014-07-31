@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import liquibase.Liquibase;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
+import liquibase.logging.LogLevel;
 import liquibase.resource.ClassLoaderResourceAccessor;
 
 import org.apache.log4j.Logger;
@@ -99,7 +100,9 @@ public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterCo
 
     private Liquibase getLiquibase(Connection connection, String changeLogFile) throws LiquibaseException {
         JdbcConnection c = new JdbcConnection(connection);
-        return new Liquibase(changeLogFile, new ClassLoaderResourceAccessor(), c);
+        Liquibase liquibase = new Liquibase(changeLogFile, new ClassLoaderResourceAccessor(), c);
+        liquibase.getLog().setLogLevel(LogLevel.WARNING);
+        return liquibase;
     }
 
     private void liquibaseDropDatabase(Connection connection) {
