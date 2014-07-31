@@ -196,6 +196,7 @@
                     <configuration>
                         <user>weblogic</user>
                         <password>welcome1</password>
+                        <args>"${middlewareHome}" "${basedir}/Oracle/Domains/mydomain"</args>
                     </configuration>
                     <executions>
                         <execution>
