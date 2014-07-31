@@ -3,10 +3,10 @@ package com.chameli.rtb.service.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -18,8 +18,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class ItemEO {
 
     @Id
-    @SequenceGenerator(allocationSize = 1, name = "ITEM_SEQUENCE", sequenceName = "item_sequence")
-    @GeneratedValue(generator = "ITEM_SEQUENCE")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)

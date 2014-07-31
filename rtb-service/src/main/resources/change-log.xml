@@ -5,19 +5,15 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
          
          
-	<changeSet id="item-sequence" author="gaston">
-		<createSequence sequenceName="item_sequence" startValue="1" />
-	</changeSet>
-
 	<changeSet id="item-table" author="gaston">
 		<createTable tableName="item">
-			<column name="id" type="NUMBER">
+			<column name="id" type="INT" autoIncrement="true">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
 			<column name="name" type="varchar(100)">
 				<constraints unique="true" nullable="false" />
 			</column>
-			<column name="version" type="NUMBER">
+			<column name="version" type="INT">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
