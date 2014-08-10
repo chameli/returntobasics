@@ -1,11 +1,11 @@
 # Getting started
 
 ## Prerequisites
-The following software downloaded and installed
+The following software downloaded and installed as per instructions in the distribution
 * JDK 7
 * Maven 3
 * Eclipse Kepler or newer
-* Weblogic 12g
+* Weblogic 12c
 * MySQL 5.5 or newer
 * Toad for MySQL 7.2 (optional, use your preferred database tool)
 
@@ -27,6 +27,11 @@ Start->Right click on Computer, choose Properties->Advanced system settings->Env
   * PATH=%PATH%;%MAVEN_HOME%\bin
 * (COMMAND) Verify by *mvn -version*
 
+## Weblogic
+### Maven plugin
+Follow the steps 1 and 2 in section **Configuring the WebLogic Development Maven Plug-In - For apache-maven-3.0.x** at  
+http://docs.oracle.com/cd/E24329_01/web.1211/e24368/maven.htm#CHEIHIEH
+
 ## Eclipse
 ### Configuration
 Install the following plugins using the listed update sites
@@ -36,15 +41,11 @@ Install the following plugins using the listed update sites
 ### Workspace
 * Unpack local-tools/returntobasics-workspace.zip to E:\gaston\workspaces
 * (Command) mvn -Declipse.workspace="E:\gaston\workspaces\returntobasics" eclipse:configure-workspace
+* (Command) mvn install
 * (Command) mvn eclipse:eclipse
 * (Eclipse) Open workspace E:\gaston\workspaces\returntobasics
 * (Eclipse) Import existing projects from E:\gaston\git\returntobasics
-* (Eclipse) Select all projects, right click and choose Team->Share->Git
-
-## Weblogic
-### Maven plugin
-Follow the steps in section **Configuring the WebLogic Development Maven Plug-In - For apache-maven-3.0.x** at  
-http://docs.oracle.com/cd/E24329_01/web.1211/e24368/maven.htm#CHEIHIEH
+* (Eclipse) Select all projects, right click and choose Team->Share->Git->Finish
 
 
 ## MySQL
