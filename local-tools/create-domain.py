@@ -87,7 +87,7 @@ set('JNDIName', java.lang.String("myDataSource_jndi"))
 cd('/JDBCSystemResource/myDataSource/JdbcResource/myDataSource')
 create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
 cd('JDBCConnectionPoolParams/NO_NAME_0')
-set('TestTableName','SYSTABLES')
+set('TestTableName','INFORMATION_SCHEMA.TABLES')
 
 #=======================================================================================
 # Target resources to the servers. 
