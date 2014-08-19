@@ -18,6 +18,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.chameli.rtb</groupId>
+            <artifactId>rtb-service</artifactId>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
         </dependency>

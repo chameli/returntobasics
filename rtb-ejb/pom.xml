@@ -18,6 +18,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.chameli.rtb</groupId>
+            <artifactId>rtb-service</artifactId>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
         </dependency>
@@ -37,6 +41,13 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <configuration>
+                    <generateClient>true</generateClient>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>com.oracle.weblogic</groupId>
                 <artifactId>wls-maven-plugin</artifactId>
