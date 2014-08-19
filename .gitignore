@@ -30,3 +30,5 @@ local.properties
 #################
 .*.html
 Oracle
+# For liquibase generated db doc
+dbDoc
