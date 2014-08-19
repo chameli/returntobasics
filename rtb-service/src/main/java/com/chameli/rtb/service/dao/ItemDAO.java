@@ -15,4 +15,9 @@ public class ItemDAO extends AbstractDAO<ItemEO> {
         return listResult(query);
     }
 
+    @Override
+    protected Class<ItemEO> getPersistentClazz() {
+        return ItemEO.class;
+    }
+
 }

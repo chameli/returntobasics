@@ -1,6 +1,5 @@
 package com.chameli.rtb.service.dao;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,21 +16,13 @@ public abstract class AbstractDAO<T> {
     @Inject
     protected Provider<EntityManager> entityManagerProvider;
 
-    private Class<T> persistentClazz;
-
-    @SuppressWarnings("unchecked")
-    public AbstractDAO() {
-        this.persistentClazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
-                .getActualTypeArguments()[0];
-    }
-
     public List<T> findAll() {
-        List<T> resultList = em().createQuery(findAllStmt(), persistentClazz).getResultList();
+        List<T> resultList = em().createQuery(findAllStmt(), getPersistentClazz()).getResultList();
         return resultList;
     }
 
     private String findAllStmt() {
-        return "Select t From " + persistentClazz.getSimpleName() + " t";
+        return "Select t From " + getPersistentClazz().getSimpleName() + " t";
     }
 
     protected EntityManager em() {
@@ -40,7 +31,7 @@ public abstract class AbstractDAO<T> {
 
     protected T internalGet(Object id) {
         EntityManager em = em();
-        return em.find(persistentClazz, id);
+        return em.find(getPersistentClazz(), id);
     }
 
     @SuppressWarnings("unchecked")
@@ -69,5 +60,7 @@ public abstract class AbstractDAO<T> {
     public void merge(T entity) {
         em().merge(entity);
     };
+
+    protected abstract Class<T> getPersistentClazz();
 
 }
