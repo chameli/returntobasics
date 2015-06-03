@@ -4,6 +4,16 @@
 target/
 
 #################
+## Gradle
+#################
+build/
+.gradle/
+gradle/
+gradlew.bat
+gradlew
+settings.gradle
+
+#################
 ## Eclipse
 #################
 
@@ -28,6 +38,7 @@ local.properties
 #################
 ## Others
 #################
+*.log
 .*.html
 Oracle
 # For liquibase generated db doc
