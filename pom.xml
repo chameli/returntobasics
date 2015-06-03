@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <url>${site.base.url}/rtb </url>
+    <url>${site.base.url}/rtb</url>
 
     <groupId>com.chameli.rtb</groupId>
     <artifactId>rtb</artifactId>
