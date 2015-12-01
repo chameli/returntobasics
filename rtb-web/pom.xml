@@ -7,11 +7,10 @@
         <groupId>com.chameli.rtb</groupId>
         <artifactId>rtb</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
     </parent>
 
-    <groupId>com.chameli.rtb</groupId>
     <artifactId>rtb-web</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>rtb-web</name>
@@ -20,7 +19,11 @@
         <dependency>
             <groupId>com.chameli.rtb</groupId>
             <artifactId>rtb-ejb</artifactId>
-            <type>ejb-client</type>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>com.chameli.rtb</groupId>
+            <artifactId>rtb-service</artifactId>
         </dependency>
         <dependency>
             <groupId>javax</groupId>

@@ -7,11 +7,9 @@
         <groupId>com.chameli.rtb</groupId>
         <artifactId>rtb</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
     </parent>
-
-    <groupId>com.chameli.rtb</groupId>
     <artifactId>rtb-common</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>rtb-common</name>
