@@ -1,0 +1,12 @@
+@startuml
+
+!ifdef GIT_COMMIT
+legend top
+asdfasdf
+end legend
+!endif
+
+
+state "Tom databas" as EmptyDatabase
+
+@enduml
