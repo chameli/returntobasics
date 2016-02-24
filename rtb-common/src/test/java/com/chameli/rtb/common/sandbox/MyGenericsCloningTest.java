@@ -23,6 +23,7 @@ public class MyGenericsCloningTest {
 
         /**
          */
+        @SuppressWarnings("unchecked")
         @Override
         public Object clone() throws CloneNotSupportedException {
             MyTrulyGenericHolder<T> clone = (MyTrulyGenericHolder<T>) super.clone();
@@ -47,6 +48,7 @@ public class MyGenericsCloningTest {
 
         /**
          */
+        @SuppressWarnings("unchecked")
         @Override
         public Object clone() throws CloneNotSupportedException {
             MyDateHolder<T> clone = (MyDateHolder<T>) super.clone();
@@ -55,6 +57,7 @@ public class MyGenericsCloningTest {
         }
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     public void cloningMyTrulyGenericHolder() throws Exception {
         MyTrulyGenericHolder<Date> instance = new MyTrulyGenericHolder<Date>(new Date());
@@ -65,6 +68,7 @@ public class MyGenericsCloningTest {
         // assertTrue(instance.getMutable() != clone.getMutable());
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     public void cloningMyDateHolder() throws Exception {
         MyDateHolder<Date> instance = new MyDateHolder<Date>(new Date());

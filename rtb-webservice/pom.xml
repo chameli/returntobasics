@@ -10,9 +10,7 @@
         <relativePath>..</relativePath>
     </parent>
 
-    <groupId>com.chameli.rtb</groupId>
     <artifactId>rtb-webservice</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>ejb</packaging>
 
     <name>rtb-webservice</name>
