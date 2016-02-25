@@ -204,6 +204,12 @@
                     <version>1.8</version>
                     <configuration>
                         <complianceLevel>1.6</complianceLevel>
+                        <aspectLibraries>
+                            <aspectLibrary>
+                                <groupId>com.chameli.rtb</groupId>
+                                <artifactId>build-tools</artifactId>
+                            </aspectLibrary>
+                        </aspectLibraries>
                     </configuration>
                     <executions>
                         <execution>
@@ -215,23 +221,6 @@
                             </goals>
                         </execution>
                     </executions>
-                    <dependencies>
-                        <!-- <dependency> -->
-                        <!-- <groupId>com.chameli.rtb</groupId> -->
-                        <!-- <artifactId>build-tools</artifactId> -->
-                        <!-- <version>1.0-SNAPSHOT</version> -->
-                        <!-- </dependency> -->
-                        <dependency>
-                            <groupId>org.aspectj</groupId>
-                            <artifactId>aspectjrt</artifactId>
-                            <version>${aspectj.runtime.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.aspectj</groupId>
-                            <artifactId>aspectjtools</artifactId>
-                            <version>${aspectj.runtime.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>

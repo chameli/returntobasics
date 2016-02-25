@@ -57,14 +57,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
-                <configuration>
-                    <aspectLibraries>
-                        <aspectLibrary>
-                            <groupId>com.chameli.rtb</groupId>
-                            <artifactId>build-tools</artifactId>
-                        </aspectLibrary>
-                    </aspectLibraries>
-                </configuration>
             </plugin>
         </plugins>
     </build>
