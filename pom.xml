@@ -199,6 +199,21 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <groupId>org.apache.openejb.maven</groupId>
+                    <artifactId>tomee-maven-plugin</artifactId>
+                    <version>1.7.4</version>
+                    <configuration>
+                        <tomeeVersion>1.7.4</tomeeVersion>
+                        <tomeeClassifier>plume</tomeeClassifier>
+                        <tomeeHttpsPort>1234</tomeeHttpsPort>
+                        <config>${project.basedir}/src/tomee/conf</config>
+                        <removeDefaultWebapps>false</removeDefaultWebapps>
+                        <apps>
+                            <app>com.chameli.rtb:rtb-ear:1.0-SNAPSHOT:ear</app>
+                        </apps>
+                    </configuration>
+                </plugin>
+                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>aspectj-maven-plugin</artifactId>
                     <version>1.8</version>
