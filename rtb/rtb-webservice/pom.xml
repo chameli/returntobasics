@@ -15,6 +15,10 @@
 
     <name>rtb-webservice</name>
 
+    <properties>
+        <maven-site.skip>true</maven-site.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.chameli.rtb</groupId>

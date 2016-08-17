@@ -4,13 +4,24 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.chameli</groupId>
-        <artifactId>returntobasics</artifactId>
+		<groupId>com.chameli</groupId>
+		<artifactId>returntobasics</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
-    <artifactId>local-tools</artifactId>
+
+    <groupId>com.chameli.rtb</groupId>
+    <artifactId>rtb</artifactId>
     <packaging>pom</packaging>
 
-    <name>local-tools</name>
+    <name>rtb</name>
+
+    <modules>
+        <module>rtb-common</module>
+        <module>rtb-service</module>
+        <module>rtb-ejb</module>
+        <module>rtb-webservice</module>
+        <module>rtb-web</module>
+        <module>rtb-ear</module>
+    </modules>
 </project>

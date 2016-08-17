@@ -14,6 +14,10 @@
 
     <name>rtb-common</name>
 
+    <properties>
+        <maven-site.skip>true</maven-site.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>log4j</groupId>

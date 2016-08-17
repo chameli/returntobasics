@@ -14,6 +14,11 @@
     <packaging>war</packaging>
 
     <name>rtb-web</name>
+    
+    <properties>
+        <maven-site.skip>true</maven-site.skip>
+    </properties>
+    
     <dependencies>
         <dependency>
             <groupId>com.chameli.rtb</groupId>
@@ -52,12 +57,4 @@
     </dependencies>
 
 
-    <build>
-        <plugins>
-<!--             <plugin> -->
-<!--                 <groupId>org.codehaus.mojo</groupId> -->
-<!--                 <artifactId>aspectj-maven-plugin</artifactId> -->
-<!--             </plugin> -->
-        </plugins>
-    </build>
 </project>
