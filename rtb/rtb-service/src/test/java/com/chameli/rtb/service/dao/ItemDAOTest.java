@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotSame;
 
 import javax.persistence.Column;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -27,6 +28,12 @@ public class ItemDAOTest {
         ItemEO item = new ItemEO();
         item.setName("Item1");
         dao.persist(item);
+
+        mgr.reset();
+
+        Query query = mgr.getEntityManager().createQuery("select i from ItemEO i where i.name = :name");
+        query.setParameter("name", "Item1");
+        ItemEO sameItem = (ItemEO) query.getSingleResult();
 
         mgr.reset();
 

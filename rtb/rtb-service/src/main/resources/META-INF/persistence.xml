@@ -7,6 +7,7 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>myDataSource_jndi</jta-data-source>
         <class>com.chameli.rtb.service.entity.ItemEO</class>
+        <class>com.chameli.rtb.service.entity.CarItemEO</class>
         <shared-cache-mode>NONE</shared-cache-mode>
         <properties>
             <property name="eclipselink.target-server" value="WebLogic" />
