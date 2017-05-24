@@ -11,3 +11,5 @@ set PATH=%JAVA_HOME%\bin;%MAVEN_HOME%\bin;%ANT_HOME%\bin;%PATH%
 
 cd %CURRENTDIR%\..
 start %BASHHOME%\git-bash.exe
+
+exit

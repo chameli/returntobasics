@@ -26,7 +26,6 @@ public class CarItemDAOTest {
         mgr.reset();
 
         assertEquals(1, dao.findAll().size());
-
     }
 
 }
