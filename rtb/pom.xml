@@ -23,5 +23,6 @@
         <module>rtb-webservice</module>
         <module>rtb-web</module>
         <module>rtb-ear</module>
+        <module>rtb-system</module>
     </modules>
 </project>
