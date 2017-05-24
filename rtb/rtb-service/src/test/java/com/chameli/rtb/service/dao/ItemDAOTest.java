@@ -1,18 +1,17 @@
 package com.chameli.rtb.service.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotSame;
+import com.chameli.rtb.service.entity.ItemEO;
+import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
+import com.google.inject.Inject;
+import org.junit.Rule;
+import org.junit.Test;
 
 import javax.persistence.Column;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import org.junit.Rule;
-import org.junit.Test;
-
-import com.chameli.rtb.service.entity.ItemEO;
-import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
-import com.google.inject.Inject;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 
 public class ItemDAOTest {
 

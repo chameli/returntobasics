@@ -3,17 +3,17 @@ package com.chameli.rtb.service.junit.dao.beforeafter;
 import java.sql.Connection;
 
 public class DataloaderBeforeAfterContext implements BeforeAfterContext {
-	private Connection connection;
+    private Connection connection;
 
-	private DataloaderBeforeAfterContext(Connection em) {
-		this.connection = em;
-	}
+    private DataloaderBeforeAfterContext(Connection em) {
+        this.connection = em;
+    }
 
-	public static DataloaderBeforeAfterContext of(Connection connection) {
-		return new DataloaderBeforeAfterContext(connection);
-	}
+    public static DataloaderBeforeAfterContext of(Connection connection) {
+        return new DataloaderBeforeAfterContext(connection);
+    }
 
-	public Connection getConnection() {
-		return connection;
-	}
+    public Connection getConnection() {
+        return connection;
+    }
 }

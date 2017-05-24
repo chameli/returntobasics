@@ -1,11 +1,11 @@
 package com.chameli.rtb.common.sandbox;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
 
 import java.util.Date;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MyGenericsCloningTest {
 

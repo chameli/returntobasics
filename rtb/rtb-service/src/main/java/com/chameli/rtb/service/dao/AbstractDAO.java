@@ -1,14 +1,12 @@
 package com.chameli.rtb.service.dao;
 
-import java.util.List;
+import com.google.inject.Inject;
+import com.google.inject.Provider;
+import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
-import org.apache.log4j.Logger;
-
-import com.google.inject.Inject;
-import com.google.inject.Provider;
+import java.util.List;
 
 public abstract class AbstractDAO<T> {
     protected final Logger logger = Logger.getLogger(getClass());
@@ -59,7 +57,9 @@ public abstract class AbstractDAO<T> {
 
     public void merge(T entity) {
         em().merge(entity);
-    };
+    }
+
+    ;
 
     protected abstract Class<T> getPersistentClazz();
 

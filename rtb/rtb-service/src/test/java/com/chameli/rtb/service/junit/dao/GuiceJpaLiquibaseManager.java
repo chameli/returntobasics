@@ -1,10 +1,17 @@
 package com.chameli.rtb.service.junit.dao;
 
-import java.lang.annotation.Annotation;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import com.chameli.rtb.service.junit.dao.beforeafter.*;
+import com.google.inject.Module;
+import org.apache.log4j.Logger;
+import org.junit.rules.MethodRule;
+import org.junit.runners.model.FrameworkMethod;
+import org.junit.runners.model.Statement;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+import java.lang.annotation.*;
 import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -12,31 +19,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-
-import org.apache.log4j.Logger;
-import org.junit.rules.MethodRule;
-import org.junit.runners.model.FrameworkMethod;
-import org.junit.runners.model.Statement;
-
-import com.chameli.rtb.service.junit.dao.beforeafter.DatabaseCreator;
-import com.chameli.rtb.service.junit.dao.beforeafter.DatabaseCreatorBeforeAfterContext;
-import com.chameli.rtb.service.junit.dao.beforeafter.Dataloader;
-import com.chameli.rtb.service.junit.dao.beforeafter.DataloaderBeforeAfterContext;
-import com.chameli.rtb.service.junit.dao.beforeafter.Guicer;
-import com.chameli.rtb.service.junit.dao.beforeafter.GuicerBeforeAfterContext;
-import com.google.inject.Module;
-
 public class GuiceJpaLiquibaseManager implements MethodRule {
 
     public enum DdlGeneration {
         DROP_CREATE, NONE, LIQUIBASE;
     }
 
-    @Target({ ElementType.FIELD, ElementType.ANNOTATION_TYPE })
+    @Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
     @Retention(RetentionPolicy.RUNTIME)
     public @interface Config {
 
@@ -141,7 +130,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
     private void openSqlExplorer() {
         Map<String, Object> properties = em.getProperties();
         String url = (String) properties.get("javax.persistence.jdbc.url");
-        org.hsqldb.util.DatabaseManagerSwing.main(new String[] { "--url", url, "--user", "", "--noexit" });
+        org.hsqldb.util.DatabaseManagerSwing.main(new String[]{"--url", url, "--user", "", "--noexit"});
     }
 
     private void startupFactory() {
@@ -149,12 +138,12 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         Map<String, String> props = new HashMap<String, String>();
         String ddlGeneration;
         switch (config.ddlGeneration()) {
-        case DROP_CREATE:
-            ddlGeneration = "drop-and-create-tables";
-            break;
-        default:
-            ddlGeneration = "none";
-            break;
+            case DROP_CREATE:
+                ddlGeneration = "drop-and-create-tables";
+                break;
+            default:
+                ddlGeneration = "none";
+                break;
         }
         props.put("eclipselink.ddl-generation", ddlGeneration);
         factory = Persistence.createEntityManagerFactory(getPersistenceUnitName(), props);

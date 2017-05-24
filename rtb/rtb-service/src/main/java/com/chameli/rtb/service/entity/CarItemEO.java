@@ -1,9 +1,9 @@
 package com.chameli.rtb.service.entity;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Entity
 @Table(name = "car_item")

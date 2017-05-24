@@ -1,24 +1,22 @@
 package com.chameli.rtb.service.junit.dao.beforeafter;
 
+import com.chameli.rtb.service.junit.dao.ConfigHelper;
+import com.chameli.rtb.service.junit.dao.DataResource;
+import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager.Config;
+import liquibase.Liquibase;
+import liquibase.database.jvm.JdbcConnection;
+import liquibase.exception.LiquibaseException;
+import liquibase.logging.LogLevel;
+import liquibase.resource.ClassLoaderResourceAccessor;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import liquibase.Liquibase;
-import liquibase.database.jvm.JdbcConnection;
-import liquibase.exception.LiquibaseException;
-import liquibase.logging.LogLevel;
-import liquibase.resource.ClassLoaderResourceAccessor;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
-
-import com.chameli.rtb.service.junit.dao.ConfigHelper;
-import com.chameli.rtb.service.junit.dao.DataResource;
-import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager.Config;
 
 public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
     private static final Logger logger = Logger.getLogger(Dataloader.class);
@@ -87,7 +85,7 @@ public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
     }
 
     private void deleteFromTables(java.sql.Statement statement, List<String> stmts, int statementsExecuted,
-            Connection connection) {
+                                  Connection connection) {
         List<String> goodStatements = new ArrayList<String>();
         try {
             for (String str : stmts) {
@@ -137,6 +135,7 @@ public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
     }
 
     private static Set<String> EXCLUDES_TABLE = new HashSet<String>();
+
     static {
         // EXCLUDES_TABLE.add("DATABASECHANGELOG");
         EXCLUDES_TABLE.add("DATABASECHANGELOGLOCK");

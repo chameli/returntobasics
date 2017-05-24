@@ -1,13 +1,12 @@
 package com.chameli.rtb.service.dao;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Rule;
-import org.junit.Test;
-
 import com.chameli.rtb.service.entity.CarItemEO;
 import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
+import org.junit.Rule;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class CarItemDAOTest {
 

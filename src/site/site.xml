@@ -6,11 +6,11 @@
         <version>1.3.0</version>
     </skin>
     <body>
-        <menu ref="modules" />
+        <menu ref="modules"/>
         <menu name="Readme">
-            <item name="Getting started" href="getting-started.html" />
-            <item name="Site documentation" href="site-documentation.html" />
+            <item name="Getting started" href="getting-started.html"/>
+            <item name="Site documentation" href="site-documentation.html"/>
         </menu>
-        <menu ref="reports" />
+        <menu ref="reports"/>
     </body>
 </project>

@@ -1,12 +1,11 @@
 package com.chameli.rtb.web.configuration;
 
+import com.chameli.rtb.ejb.AdminItemFacade;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jndi.JndiObjectFactoryBean;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
-import com.chameli.rtb.ejb.AdminItemFacade;
 
 @Configuration
 @ComponentScan(basePackages = "com.chameli.rtb.web")

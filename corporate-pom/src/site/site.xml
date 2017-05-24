@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/DECORATION/1.4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd" name="returntobasics">
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd"
+         name="returntobasics">
 
-    <version position="none" />
+    <version position="none"/>
     <skin>
         <groupId>org.apache.maven.skins</groupId>
         <artifactId>maven-fluido-skin</artifactId>
@@ -10,13 +11,13 @@
     </skin>
     <body>
         <menu name="Verktygsstöd">
-            <item name="Karta" href="map.html" />
+            <item name="Karta" href="map.html"/>
             <item name="Git" href="">
-                <item name="Server" href="git.html" />
-                <item name="Client" href="git.html" />
+                <item name="Server" href="git.html"/>
+                <item name="Client" href="git.html"/>
             </item>
-            <item name="Jenkins" href="jenkins.html" />
-            <item name="Maven" href="maven.html" />
+            <item name="Jenkins" href="jenkins.html"/>
+            <item name="Maven" href="maven.html"/>
         </menu>
     </body>
 </project>

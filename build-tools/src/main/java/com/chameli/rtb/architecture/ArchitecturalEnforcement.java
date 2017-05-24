@@ -7,12 +7,16 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class ArchitecturalEnforcement {
 
-    /** Pointcut for finding join points inside the GUI layer */
+    /**
+     * Pointcut for finding join points inside the GUI layer
+     */
     @Pointcut("within(*..*web..*)")
     public void withinGui() {
     }
 
-    /** Pointcut for finding method calls to the DAO layer */
+    /**
+     * Pointcut for finding method calls to the DAO layer
+     */
     @Pointcut("call(* *..*.dao..*(..))")
     public void callDao() {
     }

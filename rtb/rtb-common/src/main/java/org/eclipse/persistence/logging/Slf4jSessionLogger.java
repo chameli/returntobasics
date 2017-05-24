@@ -1,12 +1,11 @@
 package org.eclipse.persistence.logging;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p>
@@ -61,7 +60,6 @@ import org.slf4j.LoggerFactory;
  * <p>
  *
  * @author Miguel Angel Sosvilla Luis.
- *
  */
 public class Slf4jSessionLogger extends AbstractSessionLog {
 
@@ -208,7 +206,6 @@ public class Slf4jSessionLogger extends AbstractSessionLog {
      * SLF4J log levels.
      *
      * @author Miguel Angel Sosvilla Luis
-     *
      */
     enum LogLevel {
         TRACE, DEBUG, INFO, WARN, ERROR, OFF

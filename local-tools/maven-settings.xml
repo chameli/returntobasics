@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" 
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <pluginGroups>
-    <pluginGroup>com.oracle.weblogic</pluginGroup>
-  </pluginGroups>
+    <pluginGroups>
+        <pluginGroup>com.oracle.weblogic</pluginGroup>
+    </pluginGroups>
 
-  <profiles>
-    <profile>
-      <id>returntobasics</id>
-      <properties>
-        <middlewareHome>E:/java/wls1211_dev</middlewareHome>
-      </properties>
-    </profile>
-  </profiles>
+    <profiles>
+        <profile>
+            <id>returntobasics</id>
+            <properties>
+                <middlewareHome>E:/java/wls1211_dev</middlewareHome>
+            </properties>
+        </profile>
+    </profiles>
 
-  <activeProfiles>
-    <activeProfile>returntobasics</activeProfile>
-  </activeProfiles>
+    <activeProfiles>
+        <activeProfile>returntobasics</activeProfile>
+    </activeProfiles>
 </settings>

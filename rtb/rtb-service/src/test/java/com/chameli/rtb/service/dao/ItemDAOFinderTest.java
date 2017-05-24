@@ -1,18 +1,17 @@
 package com.chameli.rtb.service.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.util.Iterator;
-import java.util.List;
-
-import org.junit.Rule;
-import org.junit.Test;
-
 import com.chameli.rtb.service.entity.ItemEO;
 import com.chameli.rtb.service.junit.dao.DataResource;
 import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
+import org.junit.Rule;
+import org.junit.Test;
+
+import java.util.Iterator;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ItemDAOFinderTest {
 

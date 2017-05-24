@@ -1,11 +1,11 @@
 package com.chameli.rtb.ejb;
 
+import com.google.inject.AbstractModule;
+import com.google.inject.Provider;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-import com.google.inject.AbstractModule;
-import com.google.inject.Provider;
 
 public class RtbServiceModule extends AbstractModule {
 

@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
     <changeSet id="item-data" author="gaston">
         <insert tableName="item">
-            <column name="id" value="1" />
-            <column name="dtype" value="itemeo" />
-            <column name="name" value="My item" />
-            <column name="version" value="1" />
+            <column name="id" value="1"/>
+            <column name="dtype" value="itemeo"/>
+            <column name="name" value="My item"/>
+            <column name="version" value="1"/>
         </insert>
         <insert tableName="item">
-            <column name="id" value="2" />
-            <column name="dtype" value="itemeo" />
-            <column name="name" value="Your item" />
-            <column name="version" value="1" />
+            <column name="id" value="2"/>
+            <column name="dtype" value="itemeo"/>
+            <column name="name" value="Your item"/>
+            <column name="version" value="1"/>
         </insert>
     </changeSet>
 

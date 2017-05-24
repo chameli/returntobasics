@@ -1,8 +1,6 @@
 package com.chameli.rtb.common.sandbox;
 
-import java.util.Arrays;
-import java.util.List;
-
+import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
 import org.jbehave.core.junit.JUnitStories;
@@ -10,7 +8,8 @@ import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.junit.runner.RunWith;
 
-import de.codecentric.jbehave.junit.monitoring.JUnitReportingRunner;
+import java.util.Arrays;
+import java.util.List;
 
 @RunWith(JUnitReportingRunner.class)
 public class MySimpleJBehave extends JUnitStories {
