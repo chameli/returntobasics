@@ -2,11 +2,13 @@ package com.chameli.rtb.service.entity;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "car_item")
+@DiscriminatorValue("CAR")
 public class CarItemEO extends ItemEO {
 
     private int horsepowers;

@@ -25,13 +25,13 @@ public class ItemDAOFinderTest {
 
     @Test
     public void singleGet() {
-        ItemEO found = dao.get(1L);
+        ItemEO found = dao.get(1000L);
         assertEquals("My item", found.getName());
     }
 
     @Test
     public void multipleGet() {
-        List<ItemEO> founds = dao.get(1L, 2L);
+        List<ItemEO> founds = dao.get(1000L, 1001L);
 
         assertEquals(2, founds.size());
         Iterator<ItemEO> it = founds.iterator();
