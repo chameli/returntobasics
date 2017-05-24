@@ -99,7 +99,7 @@
             <dependency>
                 <groupId>org.eclipse.persistence</groupId>
                 <artifactId>eclipselink</artifactId>
-                <version>2.2.1</version>
+                <version>2.3.1</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -113,6 +113,16 @@
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
                 <version>3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.7.25</version>
             </dependency>
             <dependency>
                 <groupId>log4j</groupId>
@@ -150,7 +160,7 @@
             <dependency>
                 <groupId>org.hsqldb</groupId>
                 <artifactId>hsqldb</artifactId>
-                <version>2.3.2</version>
+                <version>2.3.4</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
