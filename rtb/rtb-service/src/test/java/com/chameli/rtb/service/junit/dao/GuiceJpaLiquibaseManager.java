@@ -80,7 +80,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         }
         databaseCreator = new DatabaseCreator(config);
 
-        logger.debug("Method " + method.getName());
+        logger.info("Running test " + method.getClass().getSimpleName() + "." + method.getName());
         return new Statement() {
 
             @Override
