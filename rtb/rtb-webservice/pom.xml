@@ -44,13 +44,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>com.oracle.weblogic</groupId>
-                <artifactId>wls-maven-plugin</artifactId>
-                <configuration>
-                    <source>${project.build.directory}/${project.artifactId}-${project.version}.jar</source>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 

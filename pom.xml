@@ -194,24 +194,37 @@
     <pluginRepositories>
     </pluginRepositories>
 
+    <profiles>
+        <profile>
+            <id>wls12</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <user>system</user>
+                <password>wlssystem12</password>
+                <domainHome>${basedir}/wls-domain</domainHome>
+                <middlewareHome>${env.ORACLE_HOME}</middlewareHome>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.oracle.weblogic</groupId>
+                        <artifactId>weblogic-maven-plugin</artifactId>
+                        <version>12.2.1-2-0</version>
+                        <configuration>
+                            <source>rtb/rtb-web</source>
+                            <name>rtb-web</name>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.openejb.maven</groupId>
-                    <artifactId>tomee-maven-plugin</artifactId>
-                    <version>1.7.4</version>
-                    <configuration>
-                        <tomeeVersion>1.7.4</tomeeVersion>
-                        <tomeeClassifier>plume</tomeeClassifier>
-                        <tomeeHttpsPort>1234</tomeeHttpsPort>
-                        <config>${project.basedir}/src/tomee/conf</config>
-                        <removeDefaultWebapps>false</removeDefaultWebapps>
-                        <apps>
-                            <app>com.chameli.rtb:rtb-ear:1.0-SNAPSHOT:ear</app>
-                        </apps>
-                    </configuration>
-                </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>aspectj-maven-plugin</artifactId>
@@ -376,24 +389,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-ejb-plugin</artifactId>
                     <version>2.5</version>
-                </plugin>
-                <plugin>
-                    <groupId>com.oracle.weblogic</groupId>
-                    <artifactId>wls-maven-plugin</artifactId>
-                    <version>12.1.1.0</version>
-                    <configuration>
-                        <user>weblogic</user>
-                        <password>welcome1</password>
-                        <args>"${middlewareHome}" "${basedir}/Oracle/Domains/mydomain"</args>
-                    </configuration>
-                    <!-- <executions> -->
-                    <!-- <execution> -->
-                    <!-- <phase>package</phase> -->
-                    <!-- <goals> -->
-                    <!-- <goal>appc</goal> -->
-                    <!-- </goals> -->
-                    <!-- </execution> -->
-                    <!-- </executions> -->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

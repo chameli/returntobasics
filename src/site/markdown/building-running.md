@@ -26,17 +26,18 @@ mvn -N liquibase:updateSQL
 
 ## Running
 **Create a weblogic domain**  
-mvn wls:wlst -DfileName=local-tools/create-domain.py
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:create-domain
 
 **Start the server**  
-mvn wls:start-server
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:start-server
 
 **Deploy the application**  
-mvn wls:deploy -Dsource=rtb-ear/target/rtb-ear-1.0-SNAPSHOT.ear
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=rtb/rtb-ear/target/rtb-ear-1.0-SNAPSHOT.ear
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=rtb/rtb-web/target/rtb-web-1.0-SNAPSHOT.war
 
 **Re-deploy the application**  
-mvn wls:redeploy -Dsource=rtb-ear/target/rtb-ear-1.0-SNAPSHOT.ear -Dname=rtb-ear-1.0-SNAPSHOT
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:redeploy -Dsource=rtb-ear/target/rtb-ear-1.0-SNAPSHOT.ear -Dname=rtb-ear-1.0-SNAPSHOT
 
 **Stop the server**  
-mvn wls:stop-server
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:stop-server
 

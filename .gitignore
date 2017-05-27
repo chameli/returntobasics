@@ -49,3 +49,8 @@ local.properties
 Oracle
 # For liquibase generated db doc
 dbDoc
+
+################
+## WLS
+################
+wls-domain
