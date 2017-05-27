@@ -27,11 +27,6 @@
         </dependency>
         <dependency>
             <groupId>com.chameli.rtb</groupId>
-            <artifactId>rtb-ejb</artifactId>
-            <type>ejb</type>
-        </dependency>
-        <dependency>
-            <groupId>com.chameli.rtb</groupId>
             <artifactId>rtb-service</artifactId>
         </dependency>
         <dependency>
