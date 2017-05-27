@@ -24,5 +24,6 @@
         <module>rtb-web</module>
         <module>rtb-ear</module>
         <module>rtb-system</module>
+        <module>rtb-stub-web</module>
     </modules>
 </project>

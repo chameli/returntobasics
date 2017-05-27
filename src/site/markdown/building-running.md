@@ -32,8 +32,15 @@ mvn -N com.oracle.weblogic:weblogic-maven-plugin:create-domain
 mvn -N com.oracle.weblogic:weblogic-maven-plugin:start-server
 
 **Deploy the application**  
-mvn -N com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=rtb/rtb-ear/target/rtb-ear-1.0-SNAPSHOT.ear
-mvn -N com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=rtb/rtb-web/target/rtb-web-1.0-SNAPSHOT.war
+```
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=rtb/rtb-ear/target/rtb-ear-1.0-SNAPSHOT.ear -Dname=rtb-ear
+```
+```
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=rtb/rtb-web/target/rtb-web-1.0-SNAPSHOT.war -Dname=rtb-web
+```
+```
+mvn -N com.oracle.weblogic:weblogic-maven-plugin:deploy -Dsource=rtb/rtb-stub-web/target/rtb-stub-web-1.0-SNAPSHOT.war -Dname=rtb-stub-web
+```
 
 **Re-deploy the application**  
 mvn -N com.oracle.weblogic:weblogic-maven-plugin:redeploy -Dsource=rtb-ear/target/rtb-ear-1.0-SNAPSHOT.ear -Dname=rtb-ear-1.0-SNAPSHOT
