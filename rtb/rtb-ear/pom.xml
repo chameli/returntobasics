@@ -47,6 +47,12 @@
             <version>1.0-SNAPSHOT</version>
             <type>war</type>
         </dependency>
+        <dependency>
+            <groupId>com.chameli.rtb</groupId>
+            <artifactId>rtb-stub-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
     </dependencies>
 
     <build>
@@ -67,15 +73,22 @@
                         <ejbModule>
                             <groupId>com.chameli.rtb</groupId>
                             <artifactId>rtb-ejb</artifactId>
+                            <bundleFileName>rtb-ejb</bundleFileName>
                         </ejbModule>
                         <ejbModule>
                             <groupId>com.chameli.rtb</groupId>
                             <artifactId>rtb-webservice</artifactId>
+                            <bundleFileName>rtb-webservice</bundleFileName>
                         </ejbModule>
                         <webModule>
                             <groupId>com.chameli.rtb</groupId>
                             <artifactId>rtb-web</artifactId>
                             <contextRoot>rtb</contextRoot>
+                        </webModule>
+                        <webModule>
+                            <groupId>com.chameli.rtb</groupId>
+                            <artifactId>rtb-stub-web</artifactId>
+                            <contextRoot>rtb-stub</contextRoot>
                         </webModule>
                     </modules>
                 </configuration>

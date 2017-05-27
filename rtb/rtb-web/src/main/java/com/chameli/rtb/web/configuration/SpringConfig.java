@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan(basePackages = "com.chameli.rtb.web")
 public class SpringConfig {
 
-    private static final String PREFIX = "java:global/rtb-ear-1.0-SNAPSHOT/rtb-ejb-1.0-SNAPSHOT";
+    private static final String PREFIX = "java:global/rtb-ear/rtb-ejb";
 
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
