@@ -19,10 +19,10 @@
         <downloadSources>true</downloadSources>
         <downloadJavadocs>true</downloadJavadocs>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>3.2.10.RELEASE</spring.version>
+        <spring.version>4.3.8.RELEASE</spring.version>
         <mysql.version>5.1.31</mysql.version>
-        <liquibase.version>3.3.2</liquibase.version>
-        <aspectj.runtime.version>1.8.2</aspectj.runtime.version>
+        <liquibase.version>3.5.3</liquibase.version>
+        <aspectj.runtime.version>1.8.10</aspectj.runtime.version>
         <maven-site.skip>false</maven-site.skip>
     </properties>
 
@@ -76,13 +76,13 @@
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
-                <version>6.0</version>
+                <version>7.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax</groupId>
                 <artifactId>javaee-web-api</artifactId>
-                <version>6.0</version>
+                <version>7.0</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Spring Web -->
@@ -95,13 +95,13 @@
             <dependency>
                 <groupId>org.eclipse.persistence</groupId>
                 <artifactId>eclipselink</artifactId>
-                <version>2.3.1</version>
+                <version>2.6.4</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.persistence</groupId>
                 <artifactId>javax.persistence</artifactId>
-                <version>2.0.5</version>
+                <version>2.1.1</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Useful stuff -->
@@ -128,7 +128,7 @@
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.4</version>
+                <version>2.5</version>
             </dependency>
             <dependency>
                 <groupId>commons-lang</groupId>
@@ -139,19 +139,19 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.11</version>
+                <version>4.12</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>1.9.5</version>
+                <version>2.8.9</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.hsqldb</groupId>
                 <artifactId>hsqldb</artifactId>
-                <version>2.3.4</version>
+                <version>2.4.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -163,7 +163,7 @@
             <dependency>
                 <groupId>org.jbehave</groupId>
                 <artifactId>jbehave-core</artifactId>
-                <version>4.0</version>
+                <version>4.1</version>
             </dependency>
             <dependency>
                 <groupId>de.codecentric</groupId>
@@ -286,6 +286,19 @@
                             </configuration>
                         </execution>
                     </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <!--
+                    <inherited>false</inherited>
+                    -->
+                    <configuration>
+                        <!--
+                        <outputFile>outdated-dependencies.txt</outputFile>
+                        -->
+                        <rulesUri>file:///${session.executionRootDirectory}/maven-version-rules.xml</rulesUri>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
