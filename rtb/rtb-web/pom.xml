@@ -21,7 +21,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.chameli.rtb</groupId>
+            <groupId>com.chameli</groupId>
             <artifactId>build-tools</artifactId>
             <scope>provided</scope>
         </dependency>
