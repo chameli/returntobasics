@@ -10,9 +10,6 @@ build/
 out/
 .gradle/
 gradle/
-gradlew.bat
-gradlew
-settings.gradle
 
 #################
 ## Eclipse
