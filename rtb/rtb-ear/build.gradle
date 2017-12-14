@@ -1,10 +1,13 @@
 group = 'com.chameli.rtb'
 description = 'rtb-ear'
+
+apply plugin: 'ear'
+
 dependencies {
-  compile project(':rtb:rtb-common')
-  compile project(':rtb:rtb-service')
-  compile project(':rtb:rtb-ejb')
-  compile project(':rtb:rtb-webservice')
-  compile project(':rtb:rtb-web')
-  compile project(':rtb:rtb-stub-web')
+    earlib project(':rtb:rtb-common')
+    earlib project(':rtb:rtb-service')
+    deploy project(':rtb:rtb-webservice')
+    deploy project(':rtb:rtb-ejb')
+    deploy project(path: ':rtb:rtb-web', configuration: 'archives')
+    deploy project(path: ':rtb:rtb-stub-web', configuration: 'archives')
 }
