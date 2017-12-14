@@ -7,6 +7,7 @@ target/
 ## Gradle
 #################
 build/
+out/
 .gradle/
 gradle/
 gradlew.bat

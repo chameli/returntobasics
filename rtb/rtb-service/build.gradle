@@ -1,0 +1,15 @@
+group = 'com.chameli.rtb'
+description = 'rtb-service'
+dependencies {
+    compile project(':rtb:rtb-common')
+    compile "com.google.inject:guice:${guiceVersion}"
+    compile "commons-lang:commons-lang:${commonsLangVersion}"
+    compile "log4j:log4j:${log4jVersion}"
+    testCompile "org.liquibase:liquibase-core:${liquibaseVersion}"
+    testCompile "junit:junit:${junitVersion}"
+    testCompile "org.mockito:mockito-core:${mockitoVersion}"
+    testCompile "org.hsqldb:hsqldb:${hsqldbVersion}"
+    compile "org.eclipse.persistence:eclipselink:${eclipselinkVersion}"
+    compile "org.eclipse.persistence:javax.persistence:${javaxPersistenceVersion}"
+    compile "javax:javaee-api:${javaeeVersion}"
+}

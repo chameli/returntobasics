@@ -1,0 +1,10 @@
+group = 'com.chameli.rtb'
+description = 'rtb-ear'
+dependencies {
+  compile project(':rtb:rtb-common')
+  compile project(':rtb:rtb-service')
+  compile project(':rtb:rtb-ejb')
+  compile project(':rtb:rtb-webservice')
+  compile project(':rtb:rtb-web')
+  compile project(':rtb:rtb-stub-web')
+}

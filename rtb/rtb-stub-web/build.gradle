@@ -1,0 +1,11 @@
+group = 'com.chameli.rtb'
+apply plugin: 'war'
+
+jar.enabled = true
+description = 'rtb-stub-web'
+dependencies {
+    compile "log4j:log4j:${log4jVersion}"
+    testCompile "junit:junit:${junitVersion}"
+    testCompile "org.mockito:mockito-core:${mockitoVersion}"
+    providedCompile "javax:javaee-web-api:${javaeeVersion}"
+}

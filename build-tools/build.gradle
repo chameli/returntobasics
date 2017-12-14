@@ -1,0 +1,4 @@
+description = 'build-tools'
+dependencies {
+    compile "org.aspectj:aspectjtools:1.8.10"
+}
