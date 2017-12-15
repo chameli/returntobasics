@@ -1,0 +1,31 @@
+apply from: '../../liquibase.gradle'
+
+group = 'com.chameli.rtb'
+description = 'rtb-db'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.liquibase:liquibase-core:$liquibaseVersion'
+        classpath "org.liquibase:liquibase-gradle-plugin:$liquibaseGradleVersion"
+        classpath "com.oracle:ojdbc6:$ojdbc6Version"
+    }
+}
+
+
+apply plugin: 'liquibase'
+
+def changeLog = "$projectDir/src/main/resources/changelog.xml"
+liquibase {
+    activities {
+        main {
+            changeLogFile changeLog
+            url 'jdbc:oracle:thin:@localhost:1521:XE'
+            username 'gaston'
+            password 'gaston'
+        }
+    }
+}

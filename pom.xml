@@ -31,10 +31,7 @@
     </properties>
 
     <modules>
-        <module>local-tools</module>
-        <module>build-tools</module>
         <module>corporate-pom</module>
-        <module>rtb</module>
     </modules>
     <dependencyManagement>
         <dependencies>

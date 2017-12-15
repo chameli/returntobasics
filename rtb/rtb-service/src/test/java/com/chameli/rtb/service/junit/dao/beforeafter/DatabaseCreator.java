@@ -21,7 +21,7 @@ public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterCo
     private Boolean databaseAlreadyCreated;
     private boolean createDatabaseWithLiquibase;
     private boolean dropBetweenExecutions = false;
-    private String changeLogFile = "change-log.xml";
+    private String changeLogFile = "changelog.xml";
 
     public DatabaseCreator(Config config) {
         this.createDatabaseWithLiquibase = ConfigHelper.isLiquibased(config);

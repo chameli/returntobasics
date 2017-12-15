@@ -2,14 +2,13 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.17.0'
 }
 
+apply from: 'dependencies.gradle'
+
 allprojects {
     apply plugin: 'maven'
-
     group = 'com.chameli'
     version = '1.0-SNAPSHOT'
 }
-
-apply from: 'build-dependencies.gradle'
 
 subprojects {
     apply plugin: 'java'
@@ -18,15 +17,21 @@ subprojects {
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
     }
-
-
     repositories {
         jcenter()
         mavenLocal()
+        mavenCentral()
 
         maven { url "http://download.eclipse.org/rt/eclipselink/maven.repo" }
+        maven { url "https://plugins.gradle.org/m2/" }
         maven { url "http://repo.maven.apache.org/maven2" }
+        maven {
+            url "https://www.oracle.com/"
+            credentials {
+                username = 'gastonx99'
+                password = 'Milano93'
+            }
+        }
     }
-
-
 }
+
