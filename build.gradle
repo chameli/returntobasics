@@ -18,6 +18,9 @@ subprojects {
         options.encoding = 'UTF-8'
     }
     repositories {
+        maven {
+            url "http://mvnrepository.com"
+        }
         jcenter()
         mavenLocal()
         mavenCentral()

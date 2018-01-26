@@ -8,7 +8,7 @@ ext {
     guiceVersion = '4.1.0'
     javaeeVersion = '7.0'
     springVersion = '4.3.8.RELEASE'
-    ojdbc6Version = '11.2.0'
+    ojdbc6Version = '11.2.0.3'
 
     // MIGRATION
     liquibaseVersion = '3.5.3'

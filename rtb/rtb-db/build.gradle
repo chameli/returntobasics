@@ -5,8 +5,12 @@ description = 'rtb-db'
 
 buildscript {
     repositories {
+        jcenter()
         mavenLocal()
         mavenCentral()
+        maven {
+            url "http://mvnrepository.com"
+        }
     }
     dependencies {
         classpath 'org.liquibase:liquibase-core:$liquibaseVersion'
