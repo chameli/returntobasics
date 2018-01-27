@@ -1,5 +1,6 @@
 package com.chameli.rtb.service.dao;
 
+import com.chameli.rtb.service.entity.CarItemEO;
 import com.chameli.rtb.service.entity.ItemEO;
 import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
@@ -24,7 +25,7 @@ public class ItemDAOTest {
 
     @Test
     public void crud() {
-        ItemEO item = new ItemEO();
+        ItemEO item = new CarItemEO("Saab", "97");
         item.setName("Item1");
         dao.persist(item);
 
@@ -53,7 +54,8 @@ public class ItemDAOTest {
         assertEquals(newName, found.getName());
 
         mgr.reset();
-        dao.delete(item.getId());
+        found = dao.get(item.getId());
+        dao.delete(found);
 
         mgr.reset();
 
@@ -64,10 +66,10 @@ public class ItemDAOTest {
     public void nameUniqueness() throws Exception {
         Column annotation = ItemEO.class.getDeclaredField("name").getAnnotation(Column.class);
         annotation.unique();
-        ItemEO entity1 = new ItemEO();
+        ItemEO entity1 = new CarItemEO("Saab", "91");
         entity1.setName("Item1");
         dao.persist(entity1);
-        ItemEO entity2 = new ItemEO();
+        ItemEO entity2 = new CarItemEO("Saab", "90");
         entity2.setName("Item1");
         dao.persist(entity2);
         mgr.reset();

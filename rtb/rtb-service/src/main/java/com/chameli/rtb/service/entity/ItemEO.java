@@ -6,11 +6,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "item")
-@DiscriminatorColumn(name="DTYPE")
+@DiscriminatorColumn(name = "DTYPE")
 @DiscriminatorValue("GENERIC")
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries(@NamedQuery(name = "findById", query = "select i from ItemEO i where i.id in :ids"))
-public class ItemEO {
+public abstract class ItemEO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -8,15 +8,27 @@
     <changeSet id="item-data" author="gaston">
         <insert tableName="item">
             <column name="id" value="1000"/>
-            <column name="dtype" value="GENERIC"/>
+            <column name="dtype" value="CAR"/>
             <column name="name" value="My item"/>
             <column name="version" value="1"/>
         </insert>
+        <insert tableName="CAR_ITEM">
+            <column name="id" value="1000"/>
+            <column name="make" value="Volvo"/>
+            <column name="model" value="244"/>
+            <column name="horsepowers" value="66"/>
+        </insert>
         <insert tableName="item">
             <column name="id" value="1001"/>
-            <column name="dtype" value="GENERIC"/>
+            <column name="dtype" value="CAR"/>
             <column name="name" value="Your item"/>
             <column name="version" value="1"/>
+        </insert>
+        <insert tableName="CAR_ITEM">
+            <column name="id" value="1001"/>
+            <column name="make" value="Volvo"/>
+            <column name="model" value="240"/>
+            <column name="horsepowers" value="63"/>
         </insert>
     </changeSet>
 

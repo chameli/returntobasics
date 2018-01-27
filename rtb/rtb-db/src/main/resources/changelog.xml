@@ -31,6 +31,12 @@
             <column name="horsepowers" type="INTEGER">
                 <constraints nullable="false"/>
             </column>
+            <column name="make" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="model" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 

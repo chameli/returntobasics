@@ -1,5 +1,6 @@
 package com.chameli.rtb.service.dao;
 
+import com.chameli.rtb.service.entity.ItemEO;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.slf4j.Logger;
@@ -7,6 +8,10 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class AbstractDAO<T> {
@@ -15,22 +20,16 @@ public abstract class AbstractDAO<T> {
     @Inject
     protected Provider<EntityManager> entityManagerProvider;
 
-    public List<T> findAll() {
-        List<T> resultList = em().createQuery(findAllStmt(), getPersistentClazz()).getResultList();
-        return resultList;
-    }
-
-    private String findAllStmt() {
-        return "Select t From " + getPersistentClazz().getSimpleName() + " t";
-    }
-
     protected EntityManager em() {
         return entityManagerProvider.get();
     }
 
-    protected T internalGet(Object id) {
-        EntityManager em = em();
-        return em.find(getPersistentClazz(), id);
+    protected Collection<T> findAll(Class<ItemEO> clazz) {
+        CriteriaBuilder cb = em().getCriteriaBuilder();
+        CriteriaQuery<ItemEO> cq = cb.createQuery(clazz);
+        Root<ItemEO> rootEntry = cq.from(clazz);
+        CriteriaQuery<ItemEO> all = cq.select(rootEntry);
+        return listResult(em().createQuery(all));
     }
 
     @SuppressWarnings("unchecked")
@@ -43,12 +42,8 @@ public abstract class AbstractDAO<T> {
         return query.getResultList();
     }
 
-    public T get(Object id) {
-        return internalGet(id);
-    }
-
-    public void delete(long id) {
-        em().remove(internalGet(id));
+    public void delete(T object) {
+        em().remove(object);
     }
 
     public void persist(T entity) {
@@ -60,8 +55,5 @@ public abstract class AbstractDAO<T> {
         em().merge(entity);
     }
 
-    ;
-
-    protected abstract Class<T> getPersistentClazz();
-
+    public abstract Collection<T> findAll();
 }

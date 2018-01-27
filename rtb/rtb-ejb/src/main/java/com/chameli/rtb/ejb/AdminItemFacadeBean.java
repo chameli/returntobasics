@@ -9,8 +9,8 @@ import javax.ejb.Stateless;
 public class AdminItemFacadeBean extends AbstractFacadeBean implements AdminItemFacade {
 
     @Override
-    public ItemEO addItem(String itemName) {
-        return getService(AdminItemService.class).addItem(itemName);
+    public ItemEO addCarItem(String make, String model) {
+        return getService(AdminItemService.class).addCarItem(make, model);
     }
 
 }

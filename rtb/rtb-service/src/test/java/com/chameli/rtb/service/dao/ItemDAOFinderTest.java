@@ -34,8 +34,7 @@ public class ItemDAOFinderTest {
 
     @Test
     public void multipleGet() {
-
-        List<ItemEO> founds = dao.get(1000L, 1001L);
+        List<ItemEO> founds = dao.findById(1000L, 1001L);
 
         assertEquals(2, founds.size());
         Iterator<ItemEO> it = founds.iterator();

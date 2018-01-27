@@ -5,27 +5,50 @@ import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
 import org.junit.Rule;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class CarItemDAOTest {
+    private static final Logger logger = LoggerFactory.getLogger(ItemDAOFinderTest.class);
 
     @Rule
     @JpaTestConfig
     public GuiceJpaLiquibaseManager mgr = new GuiceJpaLiquibaseManager();
 
     @Inject
-    private ItemDAO dao;
+    private CarItemDAO dao;
 
     @Test
     public void crud() {
-        CarItemEO item = new CarItemEO("Saab", "Aero");
-        item.setHorsepowers(120);
+        CarItemEO item = createCarItem("Saab", "93");
         dao.persist(item);
 
         mgr.reset();
 
         assertEquals(1, dao.findAll().size());
+    }
+
+    @Test
+    public void find() {
+
+        dao.persist(createCarItem("Saab", "Aero"));
+
+        mgr.reset();
+
+        List<CarItemEO> cars = dao.findByMake("Saab");
+
+        logger.debug("Number of queries: {}", mgr.getSessionListener().getNumberOfQueries());
+
+    }
+
+    private CarItemEO createCarItem(String make, String model) {
+        CarItemEO item = new CarItemEO(make, model);
+        item.setHorsepowers(120);
+        return item;
     }
 
 }
