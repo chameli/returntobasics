@@ -7,13 +7,14 @@ import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
 import liquibase.logging.LogLevel;
 import liquibase.resource.ClassLoaderResourceAccessor;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 
 public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterContext> {
-    private static final Logger logger = Logger.getLogger(DatabaseCreator.class);
+    private static final Logger logger = LoggerFactory.getLogger(DatabaseCreator.class);
     private static final String DATABASE_ALREADY_CREATED_TABLENAME = "DATABASE_ALREADY_CREATED_TABLE";
     private static final String DATABASE_ALREADY_CREATED_TABLE_SQL = "create table "
             + DATABASE_ALREADY_CREATED_TABLENAME + " (a integer)";

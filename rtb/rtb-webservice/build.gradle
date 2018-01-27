@@ -2,7 +2,7 @@ group = 'com.chameli.rtb'
 description = 'rtb-webservice'
 dependencies {
     compile project(':rtb:rtb-service')
-    compile "log4j:log4j:${log4jVersion}"
+    runtimeOnly "log4j:log4j:${log4jVersion}"
     testCompile "junit:junit:${junitVersion}"
     testCompile "org.mockito:mockito-core:${mockitoVersion}"
     compileOnly "javax:javaee-api:${javaeeVersion}"

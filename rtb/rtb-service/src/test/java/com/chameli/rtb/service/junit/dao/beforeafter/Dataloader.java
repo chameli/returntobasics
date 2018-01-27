@@ -9,7 +9,8 @@ import liquibase.exception.LiquibaseException;
 import liquibase.logging.LogLevel;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
-    private static final Logger logger = Logger.getLogger(Dataloader.class);
+    private static final Logger logger = LoggerFactory.getLogger(Dataloader.class);
 
     private List<String> deleteFromTableStatements;
 
@@ -45,7 +46,7 @@ public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
 
     private void loadData(DataloaderBeforeAfterContext ctx) {
         String resource = dataResource.resource();
-        logger.debug("Loading data from " + resource);
+        logger.debug("Loading data from {}", resource);
         try {
             Liquibase liquibase = getLiquibase(ctx.getConnection(), resource);
             liquibase.update((String) null);
@@ -89,7 +90,7 @@ public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
         List<String> goodStatements = new ArrayList<String>();
         try {
             for (String str : stmts) {
-                logger.debug("Executing " + str);
+                logger.debug("Executing {}", str);
                 statement.execute(str);
                 connection.commit();
                 goodStatements.add(str);

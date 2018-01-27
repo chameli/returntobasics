@@ -2,14 +2,15 @@ package com.chameli.rtb.service.dao;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
 public abstract class AbstractDAO<T> {
-    protected final Logger logger = Logger.getLogger(getClass());
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Inject
     protected Provider<EntityManager> entityManagerProvider;

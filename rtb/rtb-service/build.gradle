@@ -6,7 +6,7 @@ dependencies {
     compile "com.google.inject:guice:${guiceVersion}"
     compile "com.oracle:ojdbc6:${ojdbc6Version}"
     compile "commons-lang:commons-lang:${commonsLangVersion}"
-    compile "log4j:log4j:${log4jVersion}"
+    runtimeOnly "log4j:log4j:${log4jVersion}"
     testCompile "org.liquibase:liquibase-core:${liquibaseVersion}"
     testCompile "junit:junit:${junitVersion}"
     testCompile "org.mockito:mockito-core:${mockitoVersion}"

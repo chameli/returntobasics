@@ -2,12 +2,12 @@ package com.chameli.rtb.service.junit.dao;
 
 import com.chameli.rtb.service.junit.dao.beforeafter.*;
 import com.google.inject.Module;
-import org.apache.log4j.Logger;
 import org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl;
-import org.eclipse.persistence.sessions.SessionEventAdapter;
 import org.junit.rules.MethodRule;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -43,7 +43,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
 
     }
 
-    private static final Logger logger = Logger.getLogger(GuiceJpaLiquibaseManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(GuiceJpaLiquibaseManager.class);
     private String persistenceUnitName;
     private EntityManagerFactory factory;
     protected EntityManager em;
@@ -87,7 +87,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         }
         databaseCreator = new DatabaseCreator(config);
 
-        logger.info("Running test " + method.getClass().getSimpleName() + "." + method.getName());
+        logger.info("Running test {}.{}", method.getClass().getSimpleName(), method.getName());
         return new Statement() {
 
             @Override
