@@ -4,6 +4,7 @@ import com.chameli.rtb.service.entity.ItemEO;
 import com.chameli.rtb.service.junit.dao.DataResource;
 import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
+import org.apache.log4j.Logger;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -14,6 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class ItemDAOFinderTest {
+    private static final Logger logger = Logger.getLogger(ItemDAOFinderTest.class);
 
     @Rule
     @JpaTestConfig
@@ -31,6 +33,7 @@ public class ItemDAOFinderTest {
 
     @Test
     public void multipleGet() {
+
         List<ItemEO> founds = dao.get(1000L, 1001L);
 
         assertEquals(2, founds.size());
@@ -39,5 +42,7 @@ public class ItemDAOFinderTest {
         assertNotNull(found1);
         ItemEO found2 = it.next();
         assertNotNull(found2);
+
+        logger.debug("Number of queries: " + mgr.getSessionListener().getNumberOfQueries());
     }
 }

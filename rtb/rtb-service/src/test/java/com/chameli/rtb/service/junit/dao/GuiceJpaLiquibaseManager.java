@@ -3,6 +3,8 @@ package com.chameli.rtb.service.junit.dao;
 import com.chameli.rtb.service.junit.dao.beforeafter.*;
 import com.google.inject.Module;
 import org.apache.log4j.Logger;
+import org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl;
+import org.eclipse.persistence.sessions.SessionEventAdapter;
 import org.junit.rules.MethodRule;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.Statement;
@@ -55,6 +57,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
     private Guicer guicer;
     private Dataloader dataloader;
     private DatabaseCreator databaseCreator;
+    private JpaSessionListener sessionListener = new JpaSessionListener();
 
     public GuiceJpaLiquibaseManager() {
         logger.debug("instantiating");
@@ -68,6 +71,10 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
 
     public EntityManager getEntityManager() {
         return em;
+    }
+
+    public JpaSessionListener getSessionListener() {
+        return sessionListener;
     }
 
     @Override
@@ -147,6 +154,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         }
         props.put("eclipselink.ddl-generation", ddlGeneration);
         factory = Persistence.createEntityManagerFactory(getPersistenceUnitName(), props);
+        factory.unwrap(EntityManagerFactoryImpl.class).getServerSession().getEventManager().addListener(sessionListener);
         logger.debug("Factory started");
     }
 
@@ -256,6 +264,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
                 em = null;
             }
         }
+        sessionListener.reset();
     }
 
     protected void after() {
