@@ -4,6 +4,7 @@ import com.chameli.rtb.service.entity.ItemEO;
 import com.chameli.rtb.service.junit.dao.DataResource;
 import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
+import org.apache.log4j.Level;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.Iterator;
 import java.util.List;
 
+import static org.eclipse.persistence.logging.Slf4jSessionLogger.ECLIPSELINK_NAMESPACE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -35,12 +37,14 @@ public class ItemDAOFinderTest {
     @Test
     public void multipleGet() {
 
-        List<ItemEO> founds = dao.findById(1000L, 1001L);
+        org.apache.log4j.Logger.getLogger(ECLIPSELINK_NAMESPACE + ".sql").setLevel(Level.ALL);
 
-        assertEquals(1, mgr.getPerformanceProfiler().getNumberOfQueryCalls());
+        List<ItemEO> founds = dao.findById(1000L, 1001L, 1002L);
+
+        assertEquals(5, mgr.getPerformanceProfiler().getNumberOfQueryCalls());
 
         logger.warn("Do diddely done");
-        assertEquals(2, founds.size());
+        assertEquals(3, founds.size());
         Iterator<ItemEO> it = founds.iterator();
         ItemEO found1 = it.next();
         assertNotNull(found1);
