@@ -44,9 +44,13 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
     }
 
     private static final Logger logger = LoggerFactory.getLogger(GuiceJpaLiquibaseManager.class);
+
     private String persistenceUnitName;
+
     private EntityManagerFactory factory;
+
     protected EntityManager em;
+
     protected EntityTransaction tx;
 
     private Config config;
@@ -54,10 +58,14 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
     protected Object target;
 
     private Connection connection;
+
     private Guicer guicer;
+
     private Dataloader dataloader;
+
     private DatabaseCreator databaseCreator;
-    private JpaSessionListener sessionListener = new JpaSessionListener();
+
+    private DatabaseAccessCountingPerformanceProfiler performanceProfiler = new DatabaseAccessCountingPerformanceProfiler();
 
     public GuiceJpaLiquibaseManager() {
         logger.debug("instantiating");
@@ -73,8 +81,8 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         return em;
     }
 
-    public JpaSessionListener getSessionListener() {
-        return sessionListener;
+    public DatabaseAccessCountingPerformanceProfiler getPerformanceProfiler() {
+        return performanceProfiler;
     }
 
     @Override
@@ -132,6 +140,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         if (isSqlExplorerEnabled()) {
             openSqlExplorer();
         }
+        performanceProfiler.reset();
     }
 
     private void openSqlExplorer() {
@@ -154,7 +163,8 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         }
         props.put("eclipselink.ddl-generation", ddlGeneration);
         factory = Persistence.createEntityManagerFactory(getPersistenceUnitName(), props);
-        factory.unwrap(EntityManagerFactoryImpl.class).getServerSession().getEventManager().addListener(sessionListener);
+        EntityManagerFactoryImpl emf = (EntityManagerFactoryImpl) factory;
+        emf.getServerSession().setProfiler(performanceProfiler);
         logger.debug("Factory started");
     }
 
@@ -264,7 +274,6 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
                 em = null;
             }
         }
-        sessionListener.reset();
     }
 
     protected void after() {
