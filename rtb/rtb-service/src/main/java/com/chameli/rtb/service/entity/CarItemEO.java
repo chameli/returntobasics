@@ -20,8 +20,8 @@ public class CarItemEO extends ItemEO {
         super();
     }
 
-    public CarItemEO(String make, String model) {
-        super(make + model);
+    public CarItemEO(StoreEO store, String make, String model) {
+        super(store, make + model);
         this.make = make;
         this.model = model;
     }

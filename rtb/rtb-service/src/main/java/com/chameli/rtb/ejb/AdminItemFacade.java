@@ -9,5 +9,5 @@ public interface AdminItemFacade {
 
     String JNDI_NAME = "AdminItemFacade";
 
-    ItemEO addCarItem(String make, String model);
+    ItemEO addCarItem(long storeId, String make, String model);
 }

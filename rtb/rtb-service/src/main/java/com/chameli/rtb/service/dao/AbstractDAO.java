@@ -1,6 +1,5 @@
 package com.chameli.rtb.service.dao;
 
-import com.chameli.rtb.service.entity.ItemEO;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.slf4j.Logger;
@@ -24,11 +23,11 @@ public abstract class AbstractDAO<T> {
         return entityManagerProvider.get();
     }
 
-    protected Collection<T> findAll(Class<ItemEO> clazz) {
+    protected <Z> Collection<Z> findAll(Class<Z> clazz) {
         CriteriaBuilder cb = em().getCriteriaBuilder();
-        CriteriaQuery<ItemEO> cq = cb.createQuery(clazz);
-        Root<ItemEO> rootEntry = cq.from(clazz);
-        CriteriaQuery<ItemEO> all = cq.select(rootEntry);
+        CriteriaQuery<Z> cq = cb.createQuery(clazz);
+        Root<Z> rootEntry = cq.from(clazz);
+        CriteriaQuery<Z> all = cq.select(rootEntry);
         return listResult(em().createQuery(all));
     }
 
@@ -38,7 +37,7 @@ public abstract class AbstractDAO<T> {
     }
 
     @SuppressWarnings("unchecked")
-    protected List<T> listResult(Query query) {
+    protected <Z> List<Z> listResult(Query query) {
         return query.getResultList();
     }
 
@@ -54,6 +53,4 @@ public abstract class AbstractDAO<T> {
     public void merge(T entity) {
         em().merge(entity);
     }
-
-    public abstract Collection<T> findAll();
 }

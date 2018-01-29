@@ -1,6 +1,7 @@
 package com.chameli.rtb.service.dao;
 
 import com.chameli.rtb.service.entity.CarItemEO;
+import com.chameli.rtb.service.entity.StoreEO;
 import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
 import org.junit.Rule;
@@ -29,7 +30,7 @@ public class CarItemDAOTest {
 
         mgr.reset();
 
-        assertEquals(1, dao.findAll().size());
+        assertEquals(1, dao.findAll(CarItemDAO.class).size());
     }
 
     @Test
@@ -41,14 +42,17 @@ public class CarItemDAOTest {
 
         List<CarItemEO> cars = dao.findByMake("Saab");
 
-        logger.debug("Number of queries: {}", mgr.getSessionListener().getNumberOfQueries());
-
     }
 
     private CarItemEO createCarItem(String make, String model) {
-        CarItemEO item = new CarItemEO(make, model);
+        CarItemEO item = new CarItemEO(createStore(), make, model);
         item.setHorsepowers(120);
         return item;
+    }
+
+    private StoreEO createStore() {
+        StoreEO store = new StoreEO("My Store");
+        return store;
     }
 
 }

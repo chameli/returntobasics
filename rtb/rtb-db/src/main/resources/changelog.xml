@@ -6,10 +6,27 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
 
+    <changeSet id="store-table" author="gaston">
+        <createTable tableName="store">
+            <column name="id" type="INT" autoIncrement="true" startWith="1">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
     <changeSet id="item-table" author="gaston">
         <createTable tableName="item">
             <column name="id" type="INT" autoIncrement="true" startWith="1">
                 <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false" references="store(id)" foreignKeyName="item_store_fk"/>
             </column>
             <column name="dtype" type="varchar(100)">
                 <constraints nullable="false"/>
@@ -25,7 +42,7 @@
 
     <changeSet id="car-item-table" author="gaston">
         <createTable tableName="car_item">
-            <column name="id" type="INT" autoIncrement="true">
+            <column name="id" type="INT">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="horsepowers" type="INTEGER">
@@ -36,6 +53,22 @@
             </column>
             <column name="model" type="varchar(100)">
                 <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="food-item-table" author="gaston">
+        <createTable tableName="food_item">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="furniture-item-table" author="gaston">
+        <createTable tableName="furniture_item">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
             </column>
         </createTable>
     </changeSet>

@@ -2,6 +2,7 @@ package com.chameli.rtb.service.dao;
 
 import com.chameli.rtb.service.entity.CarItemEO;
 import com.chameli.rtb.service.entity.ItemEO;
+import com.chameli.rtb.service.entity.StoreEO;
 import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
 import org.junit.Rule;
@@ -25,7 +26,7 @@ public class ItemDAOTest {
 
     @Test
     public void crud() {
-        ItemEO item = new CarItemEO("Saab", "97");
+        ItemEO item = new CarItemEO(createStore(), "Saab", "97");
         item.setName("Item1");
         dao.persist(item);
 
@@ -37,7 +38,7 @@ public class ItemDAOTest {
 
         mgr.reset();
 
-        assertEquals(1, dao.findAll().size());
+        assertEquals(1, dao.findAll(ItemEO.class).size());
 
         mgr.reset();
 
@@ -59,17 +60,22 @@ public class ItemDAOTest {
 
         mgr.reset();
 
-        assertEquals(0, dao.findAll().size());
+        assertEquals(0, dao.findAll(ItemEO.class).size());
+    }
+
+    private StoreEO createStore() {
+        StoreEO store = new StoreEO("My Store");
+        return store;
     }
 
     @Test(expected = PersistenceException.class)
     public void nameUniqueness() throws Exception {
         Column annotation = ItemEO.class.getDeclaredField("name").getAnnotation(Column.class);
         annotation.unique();
-        ItemEO entity1 = new CarItemEO("Saab", "91");
+        ItemEO entity1 = new CarItemEO(createStore(), "Saab", "91");
         entity1.setName("Item1");
         dao.persist(entity1);
-        ItemEO entity2 = new CarItemEO("Saab", "90");
+        ItemEO entity2 = new CarItemEO(createStore(), "Saab", "90");
         entity2.setName("Item1");
         dao.persist(entity2);
         mgr.reset();

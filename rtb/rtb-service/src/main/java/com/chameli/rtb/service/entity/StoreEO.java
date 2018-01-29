@@ -3,23 +3,21 @@ package com.chameli.rtb.service.entity;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
-@Table(name = "item")
-@DiscriminatorColumn(name = "DTYPE")
-@DiscriminatorValue("GENERIC")
-@Inheritance(strategy = InheritanceType.JOINED)
-@NamedQueries(@NamedQuery(name = "findById", query = "select i from ItemEO i where i.id in :ids"))
-public abstract class ItemEO {
+@Table(name = "store")
+public class StoreEO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private StoreEO store;
-
     @Column(unique = true)
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Collection<ItemEO> items;
 
     @Version
     private long version;
@@ -28,13 +26,11 @@ public abstract class ItemEO {
         return version;
     }
 
-    public ItemEO() {
-        // For JPAs sake
+    public StoreEO() {
         super();
     }
 
-    public ItemEO(StoreEO store, String name) {
-        this.store = store;
+    public StoreEO(String name) {
         this.name = name;
     }
 
@@ -54,9 +50,13 @@ public abstract class ItemEO {
         this.name = name;
     }
 
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
     }
 
+    public Collection<ItemEO> getItems() {
+        return items;
+    }
 }

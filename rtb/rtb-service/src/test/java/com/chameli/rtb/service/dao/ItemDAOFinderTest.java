@@ -34,8 +34,12 @@ public class ItemDAOFinderTest {
 
     @Test
     public void multipleGet() {
+
         List<ItemEO> founds = dao.findById(1000L, 1001L);
 
+        assertEquals(1, mgr.getPerformanceProfiler().getNumberOfQueryCalls());
+
+        logger.warn("Do diddely done");
         assertEquals(2, founds.size());
         Iterator<ItemEO> it = founds.iterator();
         ItemEO found1 = it.next();
@@ -43,6 +47,5 @@ public class ItemDAOFinderTest {
         ItemEO found2 = it.next();
         assertNotNull(found2);
 
-        logger.debug("Number of queries: {}", mgr.getSessionListener().getNumberOfQueries());
     }
 }
