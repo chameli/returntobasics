@@ -24,6 +24,9 @@ public class ItemDAOTest {
     @Inject
     private ItemDAO dao;
 
+    @Inject
+    private StoreDAO storeDAO;
+
     @Test
     public void crud() {
         ItemEO item = new CarItemEO(createStore(), "Saab", "97");
@@ -65,6 +68,7 @@ public class ItemDAOTest {
 
     private StoreEO createStore() {
         StoreEO store = new StoreEO("My Store");
+        storeDAO.persist(store);
         return store;
     }
 

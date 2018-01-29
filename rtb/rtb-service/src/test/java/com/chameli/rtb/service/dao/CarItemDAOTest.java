@@ -23,6 +23,9 @@ public class CarItemDAOTest {
     @Inject
     private CarItemDAO dao;
 
+    @Inject
+    private StoreDAO storeDAO;
+
     @Test
     public void crud() {
         CarItemEO item = createCarItem("Saab", "93");
@@ -30,7 +33,7 @@ public class CarItemDAOTest {
 
         mgr.reset();
 
-        assertEquals(1, dao.findAll(CarItemDAO.class).size());
+        assertEquals(1, dao.findAll(CarItemEO.class).size());
     }
 
     @Test
@@ -52,6 +55,7 @@ public class CarItemDAOTest {
 
     private StoreEO createStore() {
         StoreEO store = new StoreEO("My Store");
+        storeDAO.persist(store);
         return store;
     }
 
