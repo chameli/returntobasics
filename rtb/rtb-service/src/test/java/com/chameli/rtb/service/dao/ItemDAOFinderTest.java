@@ -41,7 +41,7 @@ public class ItemDAOFinderTest {
 
         List<ItemEO> founds = dao.findById(1000L, 1001L, 1002L);
 
-        assertEquals(5, mgr.getPerformanceProfiler().getNumberOfQueryCalls());
+        assertEquals(2, mgr.getPerformanceProfiler().getNumberOfQueryCalls());
 
         logger.warn("Do diddely done");
         assertEquals(3, founds.size());

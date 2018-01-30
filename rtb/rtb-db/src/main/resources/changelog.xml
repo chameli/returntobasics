@@ -37,39 +37,24 @@
             <column name="version" type="INT">
                 <constraints nullable="false"/>
             </column>
-        </createTable>
-    </changeSet>
 
-    <changeSet id="car-item-table" author="gaston">
-        <createTable tableName="car_item">
-            <column name="id" type="INT">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
+            <!-- CAR_ITEM -->
             <column name="horsepowers" type="INTEGER">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="make" type="varchar(100)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="model" type="varchar(100)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
-        </createTable>
-    </changeSet>
+            <!-- END CAR_ITEM -->
 
-    <changeSet id="food-item-table" author="gaston">
-        <createTable tableName="food_item">
-            <column name="id" type="INT">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-        </createTable>
-    </changeSet>
+            <!-- FOOD_ITEM -->
+            <!-- END FOOD_ITEM -->
 
-    <changeSet id="furniture-item-table" author="gaston">
-        <createTable tableName="furniture_item">
-            <column name="id" type="INT">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
+            <!-- FURNITURE_ITEM -->
+            <!-- END FURNITURE_ITEM -->
         </createTable>
     </changeSet>
 
