@@ -1,26 +1,11 @@
+plugins {
+    id 'org.liquibase.gradle' version '1.2.4'
+}
+
 apply from: '../../liquibase.gradle'
 
 group = 'com.chameli.rtb'
 description = 'rtb-db'
-
-buildscript {
-    repositories {
-        jcenter()
-        mavenLocal()
-        mavenCentral()
-        maven {
-            url "http://mvnrepository.com"
-        }
-    }
-    dependencies {
-        classpath 'org.liquibase:liquibase-core:$liquibaseVersion'
-        classpath "org.liquibase:liquibase-gradle-plugin:$liquibaseGradleVersion"
-        classpath "com.oracle:ojdbc6:$ojdbc6Version"
-    }
-}
-
-
-apply plugin: 'liquibase'
 
 def changeLog = "$projectDir/src/main/resources/changelog.xml"
 liquibase {
