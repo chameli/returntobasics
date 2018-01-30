@@ -23,4 +23,11 @@ ext {
     aspectjVersion = '1.8.13'
     liquibaseVersion = '3.5.3'
     liquibaseGradleVersion = '1.2.4'
+
+    providedArtifacts = ['javax:javaee-api'                         : '7.0',
+                         'javax:javaee-web-api'                     : '7.0',
+                         'org.eclipse.persistence:eclipselink'      : '2.6.4',
+                         'org.eclipse.persistence:javax.persistence': '2.1.1'
+    ]
+
 }

@@ -9,6 +9,17 @@ dependencyUpdates.resolutionStrategy = {
                     if (rejected) {
                         selection.reject('Release candidate')
                     }
+                    if (isProvidedArtifact(selection.candidate)) {
+                        selection.reject('Provided artifact')
+                    }
             }
     }
 }
+
+boolean isProvidedArtifact(ModuleComponentIdentifier candidate) {
+    def groupAndModule = candidate.group + ':' + candidate.module
+    def version = providedArtifacts.get(groupAndModule)
+    return version != null && !candidate.version.equals(version)
+}
+
+
