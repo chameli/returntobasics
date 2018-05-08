@@ -53,7 +53,7 @@ public class StoreEO {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return new ToStringBuilder(this).append("id", id).toString();
     }
 
     public Collection<ItemEO> getItems() {

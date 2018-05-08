@@ -1,6 +1,7 @@
 package com.chameli.rtb.service.dao;
 
 import com.chameli.rtb.service.entity.ItemEO;
+import com.chameli.rtb.service.entity.StoreEO;
 import com.chameli.rtb.service.junit.dao.DataResource;
 import com.chameli.rtb.service.junit.dao.GuiceJpaLiquibaseManager;
 import com.google.inject.Inject;
@@ -28,6 +29,9 @@ public class ItemDAOFinderTest {
     @Inject
     private ItemDAO dao;
 
+    @Inject
+    private StoreDAO storeDAO;
+
     @Test
     public void singleGet() {
         ItemEO found = dao.get(1000L);
@@ -39,7 +43,11 @@ public class ItemDAOFinderTest {
 
         org.apache.log4j.Logger.getLogger(ECLIPSELINK_NAMESPACE + ".sql").setLevel(Level.ALL);
 
+        StoreEO storeEO = storeDAO.get(17L);
+
         List<ItemEO> founds = dao.findById(1000L, 1001L, 1002L);
+
+        assertEquals(storeEO, getByStore(17L, founds));
 
         assertEquals(2, mgr.getPerformanceProfiler().getNumberOfQueryCalls());
 
@@ -51,5 +59,9 @@ public class ItemDAOFinderTest {
         ItemEO found2 = it.next();
         assertNotNull(found2);
 
+    }
+
+    private StoreEO getByStore(Long storeId, List<ItemEO> items) {
+        return items.stream().filter(f -> storeId.equals(f.getStore().getId())).findFirst().get().getStore();
     }
 }

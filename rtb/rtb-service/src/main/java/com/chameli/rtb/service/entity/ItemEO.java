@@ -1,6 +1,8 @@
 package com.chameli.rtb.service.entity;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 
 import javax.persistence.*;
 
@@ -16,6 +18,7 @@ public abstract class ItemEO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JoinFetch(value = JoinFetchType.INNER)
     private StoreEO store;
 
     @Column(unique = true)
@@ -52,6 +55,10 @@ public abstract class ItemEO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public StoreEO getStore() {
+        return store;
     }
 
     @Override

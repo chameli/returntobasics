@@ -8,7 +8,12 @@
     <changeSet id="store-data" author="gaston">
         <insert tableName="store">
             <column name="id" value="17"/>
-            <column name="name" value="My store"/>
+            <column name="name" value="My store 1"/>
+            <column name="version" value="1"/>
+        </insert>
+        <insert tableName="store">
+            <column name="id" value="18"/>
+            <column name="name" value="My store 2"/>
             <column name="version" value="1"/>
         </insert>
     </changeSet>
@@ -33,7 +38,7 @@
         </insert>
         <insert tableName="item">
             <column name="id" value="1002"/>
-            <column name="store_id" value="17"/>
+            <column name="store_id" value="18"/>
             <column name="dtype" value="FURNITURE"/>
             <column name="name" value="Your sofa"/>
             <column name="version" value="1"/>
