@@ -6,11 +6,7 @@
     <persistence-unit name="persistenceUnit" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>myDataSource_jndi</jta-data-source>
-        <class>com.chameli.rtb.service.entity.StoreEO</class>
-        <class>com.chameli.rtb.service.entity.ItemEO</class>
-        <class>com.chameli.rtb.service.entity.CarItemEO</class>
-        <class>com.chameli.rtb.service.entity.FoodItemEO</class>
-        <class>com.chameli.rtb.service.entity.FurnitureItemEO</class>
+        <mapping-file>META-INF/orm.xml</mapping-file>
         <shared-cache-mode>NONE</shared-cache-mode>
         <properties>
             <property name="eclipselink.target-server" value="WebLogic"/>
