@@ -4,10 +4,10 @@
                  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
                  version="2.1">
 
-    <entity class="com.chameli.rtb.service.entity.StoreEO"/>
-    <entity class="com.chameli.rtb.service.entity.ItemEO"/>
-    <entity class="com.chameli.rtb.service.entity.CarItemEO"/>
-    <entity class="com.chameli.rtb.service.entity.FoodItemEO"/>
-    <entity class="com.chameli.rtb.service.entity.FurnitureItemEO"/>
+    <entity class="com.chameli.rtb.domain.model.Store"/>
+    <entity class="com.chameli.rtb.domain.model.Item"/>
+    <entity class="com.chameli.rtb.domain.model.CarItem"/>
+    <entity class="com.chameli.rtb.domain.model.FoodItem"/>
+    <entity class="com.chameli.rtb.domain.model.FurnitureItem"/>
 
 </entity-mappings>

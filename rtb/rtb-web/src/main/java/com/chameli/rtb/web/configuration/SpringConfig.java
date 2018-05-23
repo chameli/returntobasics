@@ -1,6 +1,6 @@
 package com.chameli.rtb.web.configuration;
 
-import com.chameli.rtb.ejb.AdminItemFacade;
+import com.chameli.rtb.interfaces.ejb.AdminItemFacade;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
