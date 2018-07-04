@@ -1,4 +1,4 @@
-package com.chameli.rtb.fw.beforeafter;
+package com.chameli.rtb.fw.guice.beforeafter;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;

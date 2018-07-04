@@ -1,6 +1,6 @@
-package com.chameli.rtb.fw;
+package com.chameli.rtb.fw.guice;
 
-import com.chameli.rtb.fw.GuiceJpaLiquibaseManager.DdlGeneration;
+import com.chameli.rtb.fw.guice.GuiceJpaLiquibaseManager.DdlGeneration;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

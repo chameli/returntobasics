@@ -1,4 +1,4 @@
-package com.chameli.rtb.fw;
+package com.chameli.rtb.fw.guice;
 
 import com.google.inject.AbstractModule;
 

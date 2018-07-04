@@ -1,8 +1,8 @@
 package com.chameli.rtb.domain.model;
 
-import com.chameli.rtb.fw.DataResource;
-import com.chameli.rtb.fw.GuiceJpaLiquibaseManager;
-import com.chameli.rtb.fw.JpaTestConfig;
+import com.chameli.rtb.fw.guice.DataResource;
+import com.chameli.rtb.fw.guice.GuiceJpaLiquibaseManager;
+import com.chameli.rtb.fw.guice.JpaTestConfig;
 import com.google.inject.Inject;
 import org.apache.log4j.Level;
 import org.junit.Rule;

@@ -1,7 +1,7 @@
 package com.chameli.rtb.domain.model;
 
-import com.chameli.rtb.fw.GuiceJpaLiquibaseManager;
-import com.chameli.rtb.fw.JpaTestConfig;
+import com.chameli.rtb.fw.guice.GuiceJpaLiquibaseManager;
+import com.chameli.rtb.fw.guice.JpaTestConfig;
 import com.google.inject.Inject;
 import org.junit.Rule;
 import org.junit.Test;
