@@ -13,7 +13,7 @@ import javax.persistence.criteria.Root;
 import java.util.Collection;
 import java.util.List;
 
-public abstract class AbstractRepository<T> {
+public abstract class AbstractRepository {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Inject
@@ -32,8 +32,8 @@ public abstract class AbstractRepository<T> {
     }
 
     @SuppressWarnings("unchecked")
-    protected T singleResult(Query query) {
-        return (T) query.getSingleResult();
+    protected <Z> Z singleResult(Query query) {
+        return (Z) query.getSingleResult();
     }
 
     @SuppressWarnings("unchecked")
@@ -41,16 +41,16 @@ public abstract class AbstractRepository<T> {
         return query.getResultList();
     }
 
-    public void delete(T object) {
+    public void delete(Object object) {
         em().remove(object);
     }
 
-    public void persist(T entity) {
+    public void persist(Object entity) {
         EntityManager em = em();
         em.persist(entity);
     }
 
-    public void merge(T entity) {
+    public void merge(Object entity) {
         em().merge(entity);
     }
 }

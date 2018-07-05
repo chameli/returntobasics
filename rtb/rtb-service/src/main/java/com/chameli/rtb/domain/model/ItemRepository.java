@@ -5,9 +5,9 @@ import javax.persistence.Query;
 import java.util.Arrays;
 import java.util.List;
 
-public class ItemRepository<T extends Item> extends AbstractRepository<T> {
+public class ItemRepository extends AbstractRepository {
 
-    public List<T> findById(Long... ids) {
+    public <T> List<T> findById(Long... ids) {
         Query query = em().createNamedQuery("findById");
         query.setParameter("ids", Arrays.asList(ids));
         return listResult(query);
