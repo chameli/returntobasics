@@ -2,12 +2,12 @@ package com.chameli.rtb.domain.model;
 
 import com.chameli.rtb.fw.guice.GuiceJpaLiquibaseManager;
 import com.chameli.rtb.fw.guice.JpaTestConfig;
-import com.google.inject.Inject;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;

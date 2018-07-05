@@ -1,7 +1,8 @@
 package com.chameli.rtb.application;
 
 import com.chameli.rtb.domain.model.*;
-import com.google.inject.Inject;
+
+import javax.inject.Inject;
 
 public class AdminItemService {
 

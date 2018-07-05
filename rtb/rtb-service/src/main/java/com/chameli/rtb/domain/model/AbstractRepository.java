@@ -1,10 +1,10 @@
 package com.chameli.rtb.domain.model;
 
-import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;

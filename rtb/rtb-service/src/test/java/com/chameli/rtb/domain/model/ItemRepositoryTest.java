@@ -2,10 +2,10 @@ package com.chameli.rtb.domain.model;
 
 import com.chameli.rtb.fw.guice.GuiceJpaLiquibaseManager;
 import com.chameli.rtb.fw.guice.JpaTestConfig;
-import com.google.inject.Inject;
 import org.junit.Rule;
 import org.junit.Test;
 
+import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
