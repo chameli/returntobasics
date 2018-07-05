@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import static org.eclipse.persistence.logging.Slf4jSessionLogger.ECLIPSELINK_NAMESPACE;
 import static org.junit.Assert.assertEquals;
@@ -61,6 +62,7 @@ public class ItemRepositoryFinderTest {
     }
 
     private Store getByStore(Long storeId, List<Item> items) {
-        return items.stream().filter(f -> storeId.equals(f.getStore().getId())).findFirst().get().getStore();
+        Optional<Item> first = items.stream().filter(f -> storeId.equals(f.getStore().getId())).findFirst();
+        return first.map(Item::getStore).orElse(null);
     }
 }

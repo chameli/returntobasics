@@ -69,25 +69,17 @@ public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
 
     private void deleteFromAllTables(Connection connection) {
         logger.debug("Deleting from all tables");
-        java.sql.Statement statement = null;
-        try {
-            statement = connection.createStatement();
+        try (java.sql.Statement statement = connection.createStatement()) {
             deleteFromTables(statement, getDeleteFromTableStatements(connection), 0, connection);
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            try {
-                statement.close();
-            } catch (Exception e) {
-                // fall through
-            }
         }
         logger.debug("Deleted from all tables");
     }
 
     private void deleteFromTables(java.sql.Statement statement, List<String> stmts, int statementsExecuted,
                                   Connection connection) {
-        List<String> goodStatements = new ArrayList<String>();
+        List<String> goodStatements = new ArrayList<>();
         try {
             for (String str : stmts) {
                 logger.debug("Executing {}", str);
@@ -109,10 +101,8 @@ public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
     }
 
     private List<String> getDeleteFromTableStatements(Connection connection) {
-        deleteFromTableStatements = new ArrayList<String>();
-        ResultSet tables = null;
-        try {
-            tables = connection.getMetaData().getTables(null, null, null, null);
+        deleteFromTableStatements = new ArrayList<>();
+        try (ResultSet tables = connection.getMetaData().getTables(null, null, null, null)) {
             while (tables.next()) {
                 String tableType = tables.getString("TABLE_TYPE");
                 if ("TABLE".equals(tableType)) {
@@ -124,18 +114,12 @@ public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            try {
-                tables.close();
-            } catch (Exception e) {
-                // fall through
-            }
         }
 
         return deleteFromTableStatements;
     }
 
-    private static Set<String> EXCLUDES_TABLE = new HashSet<String>();
+    private static Set<String> EXCLUDES_TABLE = new HashSet<>();
 
     static {
         // EXCLUDES_TABLE.add("DATABASECHANGELOG");

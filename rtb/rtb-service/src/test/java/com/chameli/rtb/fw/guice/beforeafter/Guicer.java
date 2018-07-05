@@ -21,7 +21,7 @@ public class Guicer implements BeforeAfter<GuicerBeforeAfterContext> {
 
     private List<Module> getModules(Class<? extends Module>[] classes) {
         try {
-            List<Module> list = new ArrayList<Module>();
+            List<Module> list = new ArrayList<>();
             for (Class<? extends Module> moduleClazz : classes) {
                 list.add(moduleClazz.newInstance());
             }
@@ -32,7 +32,7 @@ public class Guicer implements BeforeAfter<GuicerBeforeAfterContext> {
     }
 
     private Module[] createModules(final GuicerBeforeAfterContext ctx) {
-        List<Module> list = new ArrayList<Module>(modules);
+        List<Module> list = new ArrayList<>(modules);
         Module module = new AbstractModule() {
             @Override
             protected void configure() {

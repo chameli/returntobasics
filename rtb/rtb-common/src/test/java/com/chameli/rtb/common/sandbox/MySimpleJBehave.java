@@ -8,7 +8,7 @@ import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.junit.runner.RunWith;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @RunWith(JUnitReportingRunner.class)
@@ -30,7 +30,7 @@ public class MySimpleJBehave extends JUnitStories {
 
     @Override
     protected List<String> storyPaths() {
-        return Arrays.asList("mysquare.story");
+        return Collections.singletonList("mysquare.story");
     }
 
 }

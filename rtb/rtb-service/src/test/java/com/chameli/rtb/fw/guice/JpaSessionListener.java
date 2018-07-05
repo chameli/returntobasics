@@ -6,7 +6,7 @@ import org.eclipse.persistence.sessions.SessionEventAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JpaSessionListener extends SessionEventAdapter {
+class JpaSessionListener extends SessionEventAdapter {
     private static final Logger logger = LoggerFactory.getLogger(JpaSessionListener.class);
 
     private int numberOfQueries;

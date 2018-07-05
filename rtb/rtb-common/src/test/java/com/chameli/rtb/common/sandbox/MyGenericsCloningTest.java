@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotSame;
 
 public class MyGenericsCloningTest {
 
@@ -26,11 +26,10 @@ public class MyGenericsCloningTest {
         @SuppressWarnings("unchecked")
         @Override
         public Object clone() throws CloneNotSupportedException {
-            MyTrulyGenericHolder<T> clone = (MyTrulyGenericHolder<T>) super.clone();
             // WTF! clone-method is not
             // visible, even though T extends Cloneable!!! Cloning sucks!
             // clone.mutable = (T) mutable.clone();
-            return clone;
+            return super.clone();
         }
     }
 
@@ -60,7 +59,7 @@ public class MyGenericsCloningTest {
     @SuppressWarnings("unchecked")
     @Test
     public void cloningMyTrulyGenericHolder() throws Exception {
-        MyTrulyGenericHolder<Date> instance = new MyTrulyGenericHolder<Date>(new Date());
+        MyTrulyGenericHolder<Date> instance = new MyTrulyGenericHolder<>(new Date());
         MyTrulyGenericHolder<Date> clone = (MyTrulyGenericHolder<Date>) instance.clone();
         assertEquals(instance.getMutable(), clone.getMutable());
         // WTF!!! Can't verify that mutableDate is not same instance, since it's
@@ -71,10 +70,10 @@ public class MyGenericsCloningTest {
     @SuppressWarnings("unchecked")
     @Test
     public void cloningMyDateHolder() throws Exception {
-        MyDateHolder<Date> instance = new MyDateHolder<Date>(new Date());
+        MyDateHolder<Date> instance = new MyDateHolder<>(new Date());
         MyDateHolder<Date> clone = (MyDateHolder<Date>) instance.clone();
         assertEquals(instance.getMutable(), clone.getMutable());
-        assertTrue(instance.getMutable() != clone.getMutable());
+        assertNotSame(instance.getMutable(), clone.getMutable());
     }
 
 }

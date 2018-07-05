@@ -64,13 +64,15 @@ import java.util.Map;
 public class Slf4jSessionLogger extends AbstractSessionLog {
 
     public static final String ECLIPSELINK_NAMESPACE = "org.eclipse.persistence.logging";
+
     public static final String DEFAULT_CATEGORY = "default";
 
     public static final String DEFAULT_ECLIPSELINK_NAMESPACE = ECLIPSELINK_NAMESPACE
             + "." + DEFAULT_CATEGORY;
 
     private Map<Integer, LogLevel> mapLevels;
-    private Map<String, Logger> categoryLoggers = new HashMap<String, Logger>();
+
+    private Map<String, Logger> categoryLoggers = new HashMap<>();
 
     public Slf4jSessionLogger() {
         super();
@@ -151,7 +153,7 @@ public class Slf4jSessionLogger extends AbstractSessionLog {
     @Override
     public boolean shouldDisplayData() {
         if (this.shouldDisplayData != null) {
-            return shouldDisplayData.booleanValue();
+            return shouldDisplayData;
         } else {
             return false;
         }
@@ -215,7 +217,7 @@ public class Slf4jSessionLogger extends AbstractSessionLog {
      * Relación de los niveles de log de EclipseLink y los de SLF4J
      */
     private void initMapLevels() {
-        mapLevels = new HashMap<Integer, LogLevel>();
+        mapLevels = new HashMap<>();
 
         mapLevels.put(SessionLog.ALL, LogLevel.TRACE);
         mapLevels.put(SessionLog.FINEST, LogLevel.TRACE);

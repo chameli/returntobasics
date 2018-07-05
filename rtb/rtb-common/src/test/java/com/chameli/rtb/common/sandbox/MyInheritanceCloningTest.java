@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotSame;
 
 public class MyInheritanceCloningTest {
 
@@ -54,7 +54,7 @@ public class MyInheritanceCloningTest {
         MyClass clone = (MyClass) instance.clone();
         assertEquals(instance.getMutableDate(), clone.getMutableDate());
         // Verify that mutableDate is not same instance
-        assertTrue(instance.getMutableDate() != clone.getMutableDate());
+        assertNotSame(instance.getMutableDate(), clone.getMutableDate());
     }
 
     @Test

@@ -29,8 +29,6 @@ public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterCo
 
     private boolean createDatabaseWithLiquibase;
 
-    private boolean dropBetweenExecutions = false;
-
     private String changeLogFile = "changelog.xml";
 
     public DatabaseCreator(Config config) {
@@ -84,25 +82,15 @@ public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterCo
     @Override
     public void after(DatabaseCreatorBeforeAfterContext ctx) {
         if (createDatabaseWithLiquibase) {
-            if (dropBetweenExecutions) {
-                liquibaseDropDatabase(ctx.getConnection());
-            }
+            liquibaseDropDatabase(ctx.getConnection());
         }
     }
 
     private void createDatabaseAlreadyCreatedTable(Connection connection) {
-        java.sql.Statement statement = null;
-        try {
-            statement = connection.createStatement();
+        try (Statement statement = connection.createStatement()) {
             statement.execute(DATABASE_ALREADY_CREATED_TABLE_SQL);
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            try {
-                statement.close();
-            } catch (Exception e) {
-                // fall through
-            }
         }
     }
 
@@ -110,21 +98,13 @@ public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterCo
         if (databaseAlreadyCreated != null) {
             return databaseAlreadyCreated;
         }
-        ResultSet tables = null;
-        try {
-            logger.debug("Fetching metadata to check if database is already created");
-            tables = connection.getMetaData().getTables(null, null, DATABASE_ALREADY_CREATED_TABLENAME, null);
+        logger.debug("Fetching metadata to check if database is already created");
+        try (ResultSet tables = connection.getMetaData().getTables(null, null, DATABASE_ALREADY_CREATED_TABLENAME, null)) {
             logger.debug("Fetced metadata");
             databaseAlreadyCreated = tables.next();
             return databaseAlreadyCreated;
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            try {
-                tables.close();
-            } catch (Exception e) {
-                // fall through
-            }
         }
     }
 

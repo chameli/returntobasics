@@ -17,8 +17,4 @@ public class DatabaseCreatorBeforeAfterContext implements BeforeAfterContext {
         return connection;
     }
 
-    public boolean isCreateDatabaseWithLiquibase() {
-        // TODO Auto-generated method stub
-        return false;
-    }
 }

@@ -39,4 +39,11 @@ public class CarItem extends Item {
         this.horsepowers = horsepowers;
     }
 
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
 }

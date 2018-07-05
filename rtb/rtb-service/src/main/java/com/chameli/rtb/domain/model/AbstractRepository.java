@@ -17,7 +17,7 @@ public abstract class AbstractRepository {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Inject
-    protected Provider<EntityManager> entityManagerProvider;
+    private Provider<EntityManager> entityManagerProvider;
 
     protected EntityManager em() {
         return entityManagerProvider.get();

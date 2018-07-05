@@ -24,7 +24,7 @@ import java.util.Map;
 public class GuiceJpaLiquibaseManager implements MethodRule {
 
     public enum DdlGeneration {
-        DROP_CREATE, NONE, LIQUIBASE;
+        DROP_CREATE, NONE, LIQUIBASE
     }
 
     @Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
@@ -49,13 +49,13 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
 
     private EntityManagerFactory factory;
 
-    protected EntityManager em;
+    private EntityManager em;
 
-    protected EntityTransaction tx;
+    private EntityTransaction tx;
 
     private Config config;
 
-    protected Object target;
+    private Object target;
 
     private Connection connection;
 
@@ -102,7 +102,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
             public void evaluate() throws Throwable {
                 before();
                 logger.debug("Before evaluating base statement");
-                List<Throwable> throwables = new ArrayList<Throwable>();
+                List<Throwable> throwables = new ArrayList<>();
                 try {
                     base.evaluate();
                     logger.debug("After evaluating base statement");
@@ -129,7 +129,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         };
     }
 
-    protected void before() {
+    private void before() {
         startupFactory();
         createAndBegin();
 
@@ -151,7 +151,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
 
     private void startupFactory() {
         logger.debug("Starting factory");
-        Map<String, String> props = new HashMap<String, String>();
+        Map<String, String> props = new HashMap<>();
         String ddlGeneration;
         switch (config.ddlGeneration()) {
             case DROP_CREATE:
@@ -276,7 +276,7 @@ public class GuiceJpaLiquibaseManager implements MethodRule {
         }
     }
 
-    protected void after() {
+    private void after() {
         if (factory != null) {
             commitAndClose();
             if (dataloader != null) {

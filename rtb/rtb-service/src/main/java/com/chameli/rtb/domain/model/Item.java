@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "item")
-@DiscriminatorColumn(name = "DTYPE")
+@DiscriminatorColumn()
 @DiscriminatorValue("GENERIC")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @NamedQueries(@NamedQuery(name = "findById", query = "select i from Item i where i.id in :ids"))
