@@ -5,7 +5,9 @@ jar.enabled = true
 description = 'rtb-stub-web'
 dependencies {
     runtimeOnly "log4j:log4j:${log4jVersion}"
-    testCompile "junit:junit:${junitVersion}"
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
+    testRuntime "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
     testCompile "org.mockito:mockito-core:${mockitoVersion}"
     providedCompile "javax:javaee-web-api:${javaeeVersion}"
 }
