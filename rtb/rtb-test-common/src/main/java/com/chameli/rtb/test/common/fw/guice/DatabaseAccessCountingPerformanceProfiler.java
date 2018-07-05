@@ -1,4 +1,4 @@
-package com.chameli.rtb.fw.guice;
+package com.chameli.rtb.test.common.fw.guice;
 
 import org.eclipse.persistence.internal.sessions.AbstractRecord;
 import org.eclipse.persistence.internal.sessions.AbstractSession;

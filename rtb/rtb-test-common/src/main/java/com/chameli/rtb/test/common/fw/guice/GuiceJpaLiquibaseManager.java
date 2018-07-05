@@ -1,6 +1,6 @@
-package com.chameli.rtb.fw.guice;
+package com.chameli.rtb.test.common.fw.guice;
 
-import com.chameli.rtb.fw.guice.beforeafter.*;
+import com.chameli.rtb.test.common.fw.guice.beforeafter.*;
 import com.google.inject.Module;
 import org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl;
 import org.junit.rules.MethodRule;

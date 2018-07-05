@@ -1,4 +1,4 @@
-package com.chameli.rtb.fw.guice;
+package com.chameli.rtb.test.common.fw.guice;
 
 import org.eclipse.persistence.queries.Call;
 import org.eclipse.persistence.sessions.SessionEvent;

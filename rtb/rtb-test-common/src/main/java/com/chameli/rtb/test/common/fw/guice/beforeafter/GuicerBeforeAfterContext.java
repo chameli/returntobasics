@@ -1,4 +1,4 @@
-package com.chameli.rtb.fw.guice.beforeafter;
+package com.chameli.rtb.test.common.fw.guice.beforeafter;
 
 import javax.persistence.EntityManager;
 

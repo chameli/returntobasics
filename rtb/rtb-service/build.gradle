@@ -2,6 +2,7 @@ group = 'com.chameli.rtb'
 description = 'rtb-service'
 dependencies {
     compile project(':rtb:rtb-common')
+    testCompile project(':rtb:rtb-test-common')
     testCompile project(':rtb:rtb-db')
     compile "com.google.inject:guice:${guiceVersion}"
     compile "com.oracle:ojdbc6:${ojdbc6Version}"

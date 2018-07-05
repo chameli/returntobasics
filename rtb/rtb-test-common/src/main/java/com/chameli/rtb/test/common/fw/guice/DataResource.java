@@ -1,4 +1,4 @@
-package com.chameli.rtb.fw.guice;
+package com.chameli.rtb.test.common.fw.guice;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

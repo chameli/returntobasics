@@ -1,7 +1,7 @@
-package com.chameli.rtb.fw.guice.beforeafter;
+package com.chameli.rtb.test.common.fw.guice.beforeafter;
 
-import com.chameli.rtb.fw.guice.ConfigHelper;
-import com.chameli.rtb.fw.guice.GuiceJpaLiquibaseManager.Config;
+import com.chameli.rtb.test.common.fw.guice.ConfigHelper;
+import com.chameli.rtb.test.common.fw.guice.GuiceJpaLiquibaseManager.Config;
 import liquibase.Liquibase;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
