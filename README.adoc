@@ -1,0 +1,7 @@
+create database rtb;
+
+create user rtb identified by 'rtb';
+
+grant all privileges on rtb.* to rtb;
+
+gradle :rtb:rtb-db:dev diff

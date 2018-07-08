@@ -1,3 +1,9 @@
+buildscript {
+    dependencies {
+        classpath 'mysql:mysql-connector-java:8.0.11'
+    }
+}
+
 plugins {
     id 'org.liquibase.gradle' version '1.2.4'
 }
@@ -7,14 +13,17 @@ apply from: '../../liquibase.gradle'
 group = 'com.chameli.rtb'
 description = 'rtb-db'
 
+
 def changeLog = "$projectDir/src/main/resources/changelog.xml"
+
 liquibase {
     activities {
         main {
             changeLogFile changeLog
-            url 'jdbc:oracle:thin:@localhost:1521:XE'
-            username 'gaston'
-            password 'gaston'
+//            url 'jdbc:oracle:thin:@localhost:1521:XE'
+            url 'jdbc:mysql://localhost:3306/rtb'
+            username 'rtb'
+            password 'rtb'
         }
     }
 }
