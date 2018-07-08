@@ -3,16 +3,16 @@ description = 'rtb-test-common'
 dependencies {
     compile project(':rtb:rtb-common')
     compile "com.google.inject:guice:${guiceVersion}"
-    runtimeOnly "log4j:log4j:${log4jVersion}"
     compile "org.eclipse.persistence:eclipselink:${eclipselinkVersion}"
     compile "org.eclipse.persistence:javax.persistence:${javaxPersistenceVersion}"
     compile "javax:javaee-api:${javaeeVersion}"
     compile "org.liquibase:liquibase-core:${liquibaseVersion}"
     compile "org.hsqldb:hsqldb:${hsqldbVersion}"
-    testCompile "org.mockito:mockito-core:${mockitoVersion}"
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
-    testRuntime "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
+    compile "org.mockito:mockito-core:${mockitoVersion}"
+    compile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+    runtime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
+    runtime "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
+    runtimeOnly "log4j:log4j:${log4jVersion}"
 
 //    compile "com.oracle:ojdbc6:${ojdbc6Version}"
 //    compile "commons-lang:commons-lang:${commonsLangVersion}"

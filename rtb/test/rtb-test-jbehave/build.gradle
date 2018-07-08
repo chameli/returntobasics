@@ -1,0 +1,8 @@
+group = 'com.chameli.rtb.test'
+description = 'rtb-test-jbehave'
+dependencies {
+    compile project(':rtb:rtb-test-common')
+    compile project(':rtb:rtb-web')
+    compile "de.codecentric:jbehave-junit-runner:${jbehaveJunitVersion}"
+    compile "org.jbehave:jbehave-core:$jbehaveVersion"
+}
