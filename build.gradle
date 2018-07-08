@@ -2,6 +2,15 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.17.0'
 }
 
+apply plugin: 'idea'
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
 apply from: 'dependency-versions.gradle'
 
 allprojects {
