@@ -4,12 +4,10 @@
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
     <persistence-unit name="persistenceUnit" transaction-type="JTA">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>jdbc/rtb-ds</jta-data-source>
         <mapping-file>META-INF/orm.xml</mapping-file>
         <shared-cache-mode>NONE</shared-cache-mode>
         <properties>
-            <property name="eclipselink.target-server" value="WebLogic"/>
             <property name="eclipselink.logging.file" value="eclipselink-output.log"/>
             <property name="eclipselink.logging.level" value="FINE"/>
             <property name="eclipselink.logging.level.sql" value="FINEST"/>
