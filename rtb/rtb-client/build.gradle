@@ -1,0 +1,6 @@
+group = 'com.chameli.rtb'
+description = 'rtb-client'
+dependencies {
+    compile project(':rtb:rtb-common')
+    testCompile project(':rtb:rtb-test-common')
+}

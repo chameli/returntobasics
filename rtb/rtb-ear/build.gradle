@@ -5,6 +5,7 @@ apply plugin: 'ear'
 
 dependencies {
     earlib project(':rtb:rtb-common')
+    earlib project(':rtb:rtb-client')
     earlib project(':rtb:rtb-service')
     deploy project(':rtb:rtb-ejb')
     deploy project(path: ':rtb:rtb-web', configuration: 'archives')

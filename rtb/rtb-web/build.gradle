@@ -4,6 +4,7 @@ apply plugin: 'war'
 jar.enabled = true
 description = 'rtb-web'
 dependencies {
+    compile project(':rtb:rtb-client')
     compile project(':rtb:rtb-service')
     compile "org.springframework:spring-webmvc:${springVersion}"
     runtimeOnly "log4j:log4j:${log4jVersion}"

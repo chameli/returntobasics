@@ -1,6 +1,7 @@
 group = 'com.chameli.rtb'
 description = 'rtb-ejb'
 dependencies {
+    compile project(':rtb:rtb-client')
     compile project(':rtb:rtb-service')
     runtimeOnly "log4j:log4j:${log4jVersion}"
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"

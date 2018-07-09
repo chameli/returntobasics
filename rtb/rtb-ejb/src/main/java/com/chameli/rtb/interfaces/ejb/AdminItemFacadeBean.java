@@ -2,6 +2,7 @@ package com.chameli.rtb.interfaces.ejb;
 
 import com.chameli.rtb.application.AdminItemService;
 import com.chameli.rtb.domain.model.Item;
+import com.chameli.rtb.interfaces.ItemDTO;
 
 import javax.ejb.Stateless;
 
@@ -9,8 +10,9 @@ import javax.ejb.Stateless;
 public class AdminItemFacadeBean extends AbstractFacadeBean implements AdminItemFacade {
 
     @Override
-    public Item addCarItem(long storeId, String make, String model) {
-        return getService(AdminItemService.class).addCarItem(storeId, make, model);
+    public ItemDTO addCarItem(long storeId, String make, String model) {
+        Item item = getService(AdminItemService.class).addCarItem(storeId, make, model);
+        return ItemAssembler.toDTO(item);
     }
 
 }
