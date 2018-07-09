@@ -11,3 +11,8 @@ dependencies {
     deploy project(path: ':rtb:rtb-web', configuration: 'archives')
     deploy project(path: ':rtb:rtb-stub-web', configuration: 'archives')
 }
+
+ear {
+    archiveName = 'rtb-ear.ear'
+}
+

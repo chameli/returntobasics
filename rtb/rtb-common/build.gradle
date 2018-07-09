@@ -12,5 +12,4 @@ dependencies {
     testRuntime "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
     testCompile "org.mockito:mockito-core:${mockitoVersion}"
     compileOnly "org.eclipse.persistence:eclipselink:${eclipselinkVersion}"
-    compileOnly "org.eclipse.persistence:javax.persistence:${javaxPersistenceVersion}"
 }

@@ -4,6 +4,7 @@ apply plugin: 'war'
 description = 'rtb-webservice'
 dependencies {
     compile project(':rtb:rtb-common')
+    compile project(':rtb:rtb-client')
     compile "javax:javaee-api:${javaeeVersion}"
 }
 

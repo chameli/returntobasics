@@ -9,7 +9,7 @@ dependencies {
     compile "com.google.inject:guice:${guiceVersion}"
 //    compile "com.oracle:ojdbc6:${ojdbc6Version}"
     testCompile "org.liquibase:liquibase-core:${liquibaseVersion}"
-    compile "org.eclipse.persistence:eclipselink:${eclipselinkVersion}"
-    compile "org.eclipse.persistence:javax.persistence:${javaxPersistenceVersion}"
-    compile "javax:javaee-api:${javaeeVersion}"
+    compileOnly "org.eclipse.persistence:eclipselink:${eclipselinkVersion}"
+    compileOnly "org.eclipse.persistence:javax.persistence:${javaxPersistenceVersion}"
+    runtime "javax:javaee-api:${javaeeVersion}"
 }

@@ -15,3 +15,8 @@ dependencies {
     providedCompile project(':build-tools')
     providedCompile "javax:javaee-web-api:${javaeeVersion}"
 }
+
+war {
+    archiveName = 'rtb-web.war'
+}
+

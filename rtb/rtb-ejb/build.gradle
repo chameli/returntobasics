@@ -1,12 +1,11 @@
 group = 'com.chameli.rtb'
 description = 'rtb-ejb'
+
+
 dependencies {
+    compile project(':rtb:rtb-common')
     compile project(':rtb:rtb-client')
     compile project(':rtb:rtb-service')
-    runtimeOnly "log4j:log4j:${log4jVersion}"
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
-    testRuntime "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
-    testCompile "org.mockito:mockito-core:${mockitoVersion}"
-    compileOnly "javax:javaee-api:${javaeeVersion}"
+    testCompile project(':rtb:rtb-test-common')
 }
+

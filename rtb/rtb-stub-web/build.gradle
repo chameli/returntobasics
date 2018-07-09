@@ -11,3 +11,8 @@ dependencies {
     testCompile "org.mockito:mockito-core:${mockitoVersion}"
     providedCompile "javax:javaee-web-api:${javaeeVersion}"
 }
+
+war {
+    archiveName = 'rtb-stub-web.war'
+}
+
