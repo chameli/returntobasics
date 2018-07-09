@@ -4,18 +4,12 @@ dependencies {
     compile project(':rtb:rtb-common')
     testCompile project(':rtb:rtb-test-common')
     testCompile project(':rtb:rtb-db')
+    compile project(':rtb:rtb-client')
+    compile "ma.glasnost.orika:orika-core:${orikaVersion}"
     compile "com.google.inject:guice:${guiceVersion}"
-    compile "com.oracle:ojdbc6:${ojdbc6Version}"
-    compile "commons-lang:commons-lang:${commonsLangVersion}"
-    runtimeOnly "log4j:log4j:${log4jVersion}"
+//    compile "com.oracle:ojdbc6:${ojdbc6Version}"
     testCompile "org.liquibase:liquibase-core:${liquibaseVersion}"
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
-    testRuntime "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
-    testCompile "org.mockito:mockito-core:${mockitoVersion}"
-    testCompile "org.hsqldb:hsqldb:${hsqldbVersion}"
     compile "org.eclipse.persistence:eclipselink:${eclipselinkVersion}"
     compile "org.eclipse.persistence:javax.persistence:${javaxPersistenceVersion}"
     compile "javax:javaee-api:${javaeeVersion}"
-    testCompile "com.tngtech.archunit:archunit:${archUnitVersion}"
 }

@@ -7,6 +7,7 @@ ext {
     eclipselinkVersion = '2.6.4'
     commonsLangVersion = '2.6'
     javaxPersistenceVersion = '2.1.1'
+    orikaVersion = '1.5.2'
     guiceVersion = '4.1.0'
     javaeeVersion = '7.0'
     springVersion = '5.0.3.RELEASE'
