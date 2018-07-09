@@ -6,5 +6,5 @@ public interface AdminItemFacade {
 
     String JNDI_NAME = "AdminItemFacade";
 
-    ItemDTO addCarItem(long storeId, String make, String model);
+    ItemDTO findItem(long itemId);
 }
