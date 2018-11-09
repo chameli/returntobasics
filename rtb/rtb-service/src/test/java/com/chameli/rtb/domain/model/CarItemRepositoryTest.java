@@ -20,7 +20,7 @@ public class CarItemRepositoryTest {
     public GuiceJpaLiquibaseManager mgr = new GuiceJpaLiquibaseManager();
 
     @Inject
-    private CarItemRepository dao;
+    private ItemRepository dao;
 
     @Inject
     private StoreRepository storeDAO;

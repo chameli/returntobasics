@@ -6,10 +6,8 @@ dependencies {
     testCompile project(':rtb:rtb-db')
     compile project(':rtb:rtb-client')
     compile "ma.glasnost.orika:orika-core:${orikaVersion}"
-    compile "com.google.inject:guice:${guiceVersion}"
-//    compile "com.oracle:ojdbc6:${ojdbc6Version}"
     testCompile "org.liquibase:liquibase-core:${liquibaseVersion}"
     compileOnly "org.eclipse.persistence:eclipselink:${eclipselinkVersion}"
     compileOnly "org.eclipse.persistence:javax.persistence:${javaxPersistenceVersion}"
-    runtime "javax:javaee-api:${javaeeVersion}"
+    compileOnly "javax:javaee-api:${javaeeVersion}"
 }

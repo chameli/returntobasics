@@ -1,8 +1,6 @@
 package com.chameli.rtb.domain.model;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.eclipse.persistence.annotations.JoinFetch;
-import org.eclipse.persistence.annotations.JoinFetchType;
 
 import javax.persistence.*;
 
@@ -18,7 +16,7 @@ public abstract class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinFetch(value = JoinFetchType.INNER)
+    @ManyToOne
     private Store store;
 
     @Column(unique = true)

@@ -1,6 +1,5 @@
 package com.chameli.rtb.domain.model;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +13,12 @@ public class ItemRepository extends AbstractRepository {
     }
 
     public Item get(Object id) {
-        EntityManager em = em();
-        return em.find(Item.class, id);
+        return em().find(Item.class, id);
+    }
+
+    public List<CarItem> findByMake(String make) {
+        Query query = em().createNamedQuery("findByCarMake");
+        query.setParameter("make", make);
+        return listResult(query);
     }
 }

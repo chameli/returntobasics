@@ -1,6 +1,5 @@
 package com.chameli.rtb.domain.model;
 
-import com.google.inject.Provider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,10 +16,10 @@ public abstract class AbstractRepository {
     protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Inject
-    private Provider<EntityManager> entityManagerProvider;
+    private EntityManager entityManager;
 
     protected EntityManager em() {
-        return entityManagerProvider.get();
+        return entityManager;
     }
 
     protected <Z> Collection<Z> findAll(Class<Z> clazz) {

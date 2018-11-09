@@ -1,3 +1,7 @@
+= Misc =
+
+== MySQL ==
+
 create database rtb;
 
 create user rtb identified by 'rtb';

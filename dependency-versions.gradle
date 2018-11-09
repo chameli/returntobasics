@@ -10,7 +10,7 @@ ext {
     orikaVersion = '1.5.2'
     guiceVersion = '4.1.0'
     javaeeVersion = '7.0'
-    springVersion = '5.0.3.RELEASE'
+//    springVersion = '5.0.3.RELEASE'
     ojdbc6Version = '11.2.0.3'
 
     // TEST

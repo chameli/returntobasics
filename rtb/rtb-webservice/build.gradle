@@ -5,7 +5,7 @@ description = 'rtb-webservice'
 dependencies {
     compile project(':rtb:rtb-common')
     compile project(':rtb:rtb-client')
-    compile "javax:javaee-api:${javaeeVersion}"
+    compileOnly "javax:javaee-api:${javaeeVersion}"
 }
 
 war {

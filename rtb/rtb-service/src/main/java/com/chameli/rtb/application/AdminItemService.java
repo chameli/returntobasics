@@ -7,23 +7,20 @@ import javax.inject.Inject;
 public class AdminItemService {
 
     @Inject
-    private ItemRepository dao;
+    private StoreRepository storeRepository;
 
     @Inject
-    private StoreRepository storeDao;
-
-    @Inject
-    private ItemRepository itemDao;
+    private ItemRepository itemRepository;
 
     public Item addCarItem(long storeId, String make, String model) {
-        Store store = storeDao.get(storeId);
+        Store store = storeRepository.get(storeId);
         Item item = new CarItem(store, make, model);
-        dao.persist(item);
+        itemRepository.persist(item);
         return item;
     }
 
     public Item findItem(long itemId) {
-        return itemDao.get(itemId);
+        return itemRepository.get(itemId);
     }
 
 }

@@ -4,14 +4,9 @@ apply plugin: 'war'
 jar.enabled = true
 description = 'rtb-web'
 dependencies {
-    compile project(':rtb:rtb-client')
-    compile project(':rtb:rtb-service')
-    compile "org.springframework:spring-webmvc:${springVersion}"
-    runtimeOnly "log4j:log4j:${log4jVersion}"
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
-    testRuntime "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
-    testCompile "org.mockito:mockito-core:${mockitoVersion}"
+    compileOnly project(':rtb:rtb-client')
+    testCompile project(':rtb:rtb-test-common')
+//    compile "org.springframework:spring-webmvc:${springVersion}"
     providedCompile project(':build-tools')
     providedCompile "javax:javaee-web-api:${javaeeVersion}"
 }

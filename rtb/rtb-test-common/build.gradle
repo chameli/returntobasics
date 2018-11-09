@@ -11,7 +11,7 @@ dependencies {
     compile "org.mockito:mockito-core:${mockitoVersion}"
     compile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
     runtime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
-    runtime "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
+    compile "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
     runtimeOnly "log4j:log4j:${log4jVersion}"
     compile "com.tngtech.archunit:archunit:${archUnitVersion}"
 

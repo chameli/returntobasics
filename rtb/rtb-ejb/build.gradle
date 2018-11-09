@@ -3,9 +3,10 @@ description = 'rtb-ejb'
 
 
 dependencies {
-    compile project(':rtb:rtb-common')
-    compile project(':rtb:rtb-client')
-    compile project(':rtb:rtb-service')
+    compileOnly project(':rtb:rtb-common')
+    compileOnly project(':rtb:rtb-client')
+    compileOnly project(':rtb:rtb-service')
+    compileOnly "javax:javaee-api:${javaeeVersion}"
     testCompile project(':rtb:rtb-test-common')
 }
 
