@@ -12,7 +12,7 @@ dependencies {
     compile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
     runtime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
     compile "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
-    runtimeOnly "log4j:log4j:${log4jVersion}"
+    compile "log4j:log4j:${log4jVersion}"
     compile "com.tngtech.archunit:archunit:${archUnitVersion}"
 
 //    compile "com.oracle:ojdbc6:${ojdbc6Version}"

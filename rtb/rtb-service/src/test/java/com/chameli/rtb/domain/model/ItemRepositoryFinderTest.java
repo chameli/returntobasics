@@ -41,13 +41,13 @@ public class ItemRepositoryFinderTest {
     @Test
     public void multipleGet() {
 
-        org.apache.log4j.Logger.getLogger(ECLIPSELINK_NAMESPACE + ".sql").setLevel(Level.ALL);
-
         Store store = storeDAO.get(17L);
 
+        org.apache.log4j.Logger.getLogger(ECLIPSELINK_NAMESPACE + ".sql").setLevel(Level.DEBUG);
+        mgr.getPerformanceProfiler().reset();
         List<Item> founds = dao.findById(1000L, 1001L, 1002L);
-
         assertEquals(store, getByStore(17L, founds));
+        org.apache.log4j.Logger.getLogger(ECLIPSELINK_NAMESPACE + ".sql").setLevel(Level.ERROR);
 
         assertEquals(2, mgr.getPerformanceProfiler().getNumberOfQueryCalls());
 
