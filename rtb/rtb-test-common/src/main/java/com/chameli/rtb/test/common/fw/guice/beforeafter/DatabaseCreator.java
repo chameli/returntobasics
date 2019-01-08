@@ -29,7 +29,7 @@ public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterCo
 
     private boolean createDatabaseWithLiquibase;
 
-    private String changeLogFile = "changelog.xml";
+    private String changeLogFile = "master-ddl.xml";
 
     public DatabaseCreator(Config config) {
         this.createDatabaseWithLiquibase = ConfigHelper.isLiquibased(config);

@@ -14,7 +14,7 @@ group = 'com.chameli.rtb'
 description = 'rtb-db'
 
 
-def changeLog = "$projectDir/src/main/resources/changelog.xml"
+def changeLog = "$projectDir/src/main/resources/master.xml"
 
 liquibase {
     activities {
