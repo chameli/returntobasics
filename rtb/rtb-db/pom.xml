@@ -83,7 +83,6 @@
                 <version>${liquibase.version}</version>
                 <configuration>
                     <changeLogDirectory>src/liquibase</changeLogDirectory>
-                    <changeLogFile>master.xml</changeLogFile>
                     <dropFirst>false</dropFirst>
                 </configuration>
             </plugin>
