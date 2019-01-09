@@ -11,6 +11,7 @@
     <name>rtb-db</name>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <liquibase.version>3.6.2</liquibase.version>
         <mysql.version>8.0.11</mysql.version>
     </properties>
@@ -91,16 +92,38 @@
                 <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>asdf</id>
+                        <id>copy-liquibase-changelog-files</id>
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/dist1/liquibase</outputDirectory>
+                            <outputDirectory>${project.build.directory}/liquibase/dist</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>src/liquibase</directory>
+                                    <includes>
+                                        <include>**/*.xml</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-liquibase-properties-file</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/liquibase/dist</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/liquibase</directory>
+                                    <includes>
+                                        <include>liquibase.properties</include>
+                                    </includes>
+                                    <filtering>true</filtering>
                                 </resource>
                             </resources>
                         </configuration>
@@ -119,12 +142,12 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/dist1/liquibase/lib</outputDirectory>
+                            <outputDirectory>${project.build.directory}/liquibase/dist/lib</outputDirectory>
                         </configuration>
                     </execution>
                     <execution>
                         <id>unpack-liquibase</id>
-                        <phase>validate</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>unpack</goal>
                         </goals>
@@ -136,7 +159,7 @@
                                     <version>${liquibase.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
-                                    <outputDirectory>${project.build.directory}/liquibase-unpacked</outputDirectory>
+                                    <outputDirectory>${project.build.directory}/liquibase</outputDirectory>
                                     <includes>dist/liquibase</includes>
                                 </artifactItem>
                             </artifactItems>
