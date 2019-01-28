@@ -58,7 +58,6 @@ public class Dataloader implements BeforeAfter<DataloaderBeforeAfterContext> {
     private Liquibase getLiquibase(Connection connection, String changeLogFile) throws LiquibaseException {
         JdbcConnection c = new JdbcConnection(connection);
         Liquibase liquibase = new Liquibase(changeLogFile, new ClassLoaderResourceAccessor(), c);
-        liquibase.getLog().setLogLevel(LogLevel.WARNING);
         return liquibase;
     }
 

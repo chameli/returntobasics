@@ -5,7 +5,6 @@ import com.chameli.rtb.test.common.fw.guice.GuiceJpaLiquibaseManager.Config;
 import liquibase.Liquibase;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
-import liquibase.logging.LogLevel;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -109,7 +108,7 @@ public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterCo
     }
 
     private void liquibaseCreateDatabase(Connection connection) {
-        logger.debug("Creating database with liquibase");
+        logger.debug("Creating database with liquibase using changelog {}", changeLogFile);
         try {
             Liquibase liquibase = getLiquibase(connection, changeLogFile);
             // LogFactory.getLogger().setLogLevel(LogLevel.DEBUG);
@@ -123,7 +122,6 @@ public class DatabaseCreator implements BeforeAfter<DatabaseCreatorBeforeAfterCo
     private Liquibase getLiquibase(Connection connection, String changeLogFile) throws LiquibaseException {
         JdbcConnection c = new JdbcConnection(connection);
         Liquibase liquibase = new Liquibase(changeLogFile, new ClassLoaderResourceAccessor(), c);
-        liquibase.getLog().setLogLevel(LogLevel.WARNING);
         return liquibase;
     }
 
