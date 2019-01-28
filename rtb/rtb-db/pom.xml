@@ -83,7 +83,7 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase.version}</version>
                 <configuration>
-                    <changeLogDirectory>src/liquibase</changeLogDirectory>
+                    <changeLogDirectory>src/main/resources</changeLogDirectory>
                     <dropFirst>false</dropFirst>
                 </configuration>
             </plugin>
@@ -119,7 +119,7 @@
                             <outputDirectory>${project.build.directory}/liquibase/dist</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>src/liquibase</directory>
+                                    <directory>src/main/resources</directory>
                                     <includes>
                                         <include>liquibase.properties</include>
                                     </includes>
