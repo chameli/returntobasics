@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="legacy" author="gaston">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <changeSetExecuted id="item-table" author="gaston" changeLogFile="master-ddl.xml"/>
+            </not>
+        </preConditions>
+        <createTable tableName="store">
+            <column name="id" type="INT" autoIncrement="true" startWith="1">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="item">
+            <column name="id" type="INT" autoIncrement="true" startWith="1">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="store_id" type="INT">
+                <constraints nullable="false" references="store(id)" foreignKeyName="item_store_fk"/>
+            </column>
+            <column name="dtype" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- CAR_ITEM -->
+            <column name="horsepowers" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="make" type="varchar(100)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="model" type="varchar(100)">
+                <constraints nullable="true"/>
+            </column>
+            <!-- END CAR_ITEM -->
+
+            <!-- FOOD_ITEM -->
+            <!-- END FOOD_ITEM -->
+
+            <!-- FURNITURE_ITEM -->
+            <!-- END FURNITURE_ITEM -->
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
