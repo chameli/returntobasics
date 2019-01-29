@@ -42,5 +42,6 @@ subprojects {
             }
         }
     }
+    task allDeps(type: DependencyReportTask) {}
 }
 

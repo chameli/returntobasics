@@ -1,9 +1,9 @@
 package com.chameli.rtb.domain.model;
 
+import ch.qos.logback.classic.Level;
 import com.chameli.rtb.test.common.fw.guice.DataResource;
 import com.chameli.rtb.test.common.fw.guice.GuiceJpaLiquibaseManager;
 import com.chameli.rtb.test.common.fw.guice.JpaTestConfig;
-import org.apache.log4j.Level;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -43,11 +43,11 @@ public class ItemRepositoryFinderTest {
 
         Store store = storeDAO.get(17L);
 
-        org.apache.log4j.Logger.getLogger(ECLIPSELINK_NAMESPACE + ".sql").setLevel(Level.DEBUG);
+        ((ch.qos.logback.classic.Logger) org.slf4j.LoggerFactory.getLogger(ECLIPSELINK_NAMESPACE + ".sql")).setLevel(Level.DEBUG);
         mgr.getPerformanceProfiler().reset();
         List<Item> founds = dao.findById(1000L, 1001L, 1002L);
         assertEquals(store, getByStore(17L, founds));
-        org.apache.log4j.Logger.getLogger(ECLIPSELINK_NAMESPACE + ".sql").setLevel(Level.ERROR);
+        ((ch.qos.logback.classic.Logger) org.slf4j.LoggerFactory.getLogger(ECLIPSELINK_NAMESPACE + ".sql")).setLevel(Level.ERROR);
 
         assertEquals(2, mgr.getPerformanceProfiler().getNumberOfQueryCalls());
 

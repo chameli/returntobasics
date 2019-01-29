@@ -4,6 +4,8 @@ import com.chameli.rtb.test.common.fw.guice.GuiceJpaLiquibaseManager;
 import com.chameli.rtb.test.common.fw.guice.JpaTestConfig;
 import org.junit.Rule;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.persistence.Column;
@@ -14,6 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 
 public class ItemRepositoryTest {
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     @Rule
     @JpaTestConfig
@@ -27,6 +30,7 @@ public class ItemRepositoryTest {
 
     @Test
     public void crud() {
+        LOGGER.debug("Running crud test");
         Item item = new CarItem(createStore(), "Saab", "97");
         item.setName("Item1");
         dao.persist(item);
