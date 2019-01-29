@@ -1,0 +1,4 @@
+"ID","KEY","VALUE"
+1,threshold,17
+2,mailserver,smtp@nordpolen.com
+3,shsserver,http://prod.shs.skv.se
