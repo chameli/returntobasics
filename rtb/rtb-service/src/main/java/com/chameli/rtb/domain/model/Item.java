@@ -13,7 +13,8 @@ import javax.persistence.*;
 public abstract class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "item_seq")
+    @SequenceGenerator(name = "item_seq", sequenceName = "SEQ_ITEM", allocationSize = 1)
     private Long id;
 
     @ManyToOne

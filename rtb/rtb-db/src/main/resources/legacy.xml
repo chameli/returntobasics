@@ -56,6 +56,9 @@
             <!-- FURNITURE_ITEM -->
             <!-- END FURNITURE_ITEM -->
         </createTable>
+
+        <createSequence sequenceName="SEQ_STORE" startValue="1"/>
+        <createSequence sequenceName="SEQ_ITEM" startValue="1"/>
     </changeSet>
 
 </databaseChangeLog>

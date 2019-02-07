@@ -10,7 +10,8 @@ import java.util.Collection;
 public class Store {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "store_seq")
+    @SequenceGenerator(name = "store_seq", sequenceName = "SEQ_STORE", allocationSize = 1)
     private Long id;
 
     @Column(unique = true)
