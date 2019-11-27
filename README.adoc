@@ -8,4 +8,10 @@ create user rtb identified by 'rtb';
 
 grant all privileges on rtb.* to rtb;
 
+== Gradle ==
+Compile everything
+
+  gradle build
+
 gradle :rtb:rtb-db:dev diff
+

@@ -9,6 +9,7 @@ dependencies {
     compile "org.liquibase:liquibase-core:${liquibaseVersion}"
     compile "org.hsqldb:hsqldb:${hsqldbVersion}"
     compile "org.mockito:mockito-core:${mockitoVersion}"
+    compile "junit:junit:$junitVersion"
     compile "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
     runtime "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
     compile "org.junit.vintage:junit-vintage-engine:$junitJupiterVersion"
