@@ -25,7 +25,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.3.8.RELEASE</spring.version>
         <mysql.version>8.0.22</mysql.version>
-        <liquibase.version>3.5.3</liquibase.version>
+        <liquibase.version>4.8.0</liquibase.version>
         <aspectj.runtime.version>1.8.10</aspectj.runtime.version>
         <maven-site.skip>false</maven-site.skip>
     </properties>
